@@ -1,5 +1,5 @@
 -- =============================================================================
--- 🪐 CYBER ENGINE V32.5 [👑 WELCOME UPDATE • ALL FUNCS + MM2 & DEX]
+-- 🪐 CYBER ENGINE V32.6 [👑 ULTRA PREMIUM EDITION • CUSTOMIZABLE & CLEAN]
 -- =============================================================================
 if not game:IsLoaded() then game.Loaded:Wait() end
 
@@ -35,18 +35,19 @@ ScreenGui.ResetOnSpawn = false
 ScreenGui.IgnoreGuiInset = true
 ScreenGui.Parent = playerGui
 
+-- Стартовая тема на основе фото 9fe622d3-77fb-4c61-ba17-5c8aad64280e_2.jpg
 local Theme = {
-	GlassBg = Color3.fromRGB(10, 6, 20),
-	GlassTrans = 0.22,
-	HeaderBg = Color3.fromRGB(18, 10, 32),
-	AccentCyan = Color3.fromRGB(0, 240, 255),
-	AccentPurple = Color3.fromRGB(165, 45, 255),
-	AccentGreen = Color3.fromRGB(0, 255, 130),
-	Text = Color3.fromRGB(245, 245, 255),
-	BtnOff = Color3.fromRGB(24, 14, 40),
-	BtnOn = Color3.fromRGB(115, 35, 190),
-	AlertRed = Color3.fromRGB(255, 40, 75),
-	Gold = Color3.fromRGB(255, 200, 50)
+	GlassBg = Color3.fromRGB(36, 26, 20),
+	GlassTrans = 0.12,
+	HeaderBg = Color3.fromRGB(46, 33, 25),
+	AccentCyan = Color3.fromRGB(235, 135, 40),
+	AccentPurple = Color3.fromRGB(160, 95, 60),
+	AccentGreen = Color3.fromRGB(46, 204, 113),
+	Text = Color3.fromRGB(250, 245, 240),
+	BtnOff = Color3.fromRGB(50, 38, 30),
+	BtnOn = Color3.fromRGB(110, 65, 40),
+	AlertRed = Color3.fromRGB(231, 76, 60),
+	Gold = Color3.fromRGB(241, 196, 15)
 }
 
 local States = {}
@@ -55,7 +56,6 @@ local autoPlatform = nil
 local haloPart = nil
 local xrayCache = {}
 
--- Переменные макроса
 local isRecording = false
 local isRecordingPaused = false
 local isPlaying = false
@@ -70,7 +70,7 @@ local function applyGlassStyle(obj, radius, strokeColor, strokeThickness)
 	if strokeColor then
 		local stroke = Instance.new("UIStroke", obj)
 		stroke.Color = strokeColor
-		stroke.Thickness = strokeThickness or 1.5
+		stroke.Thickness = strokeThickness or 1.2
 		stroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 	end
 end
@@ -94,11 +94,11 @@ local function makeDraggable(frame, handle)
 end
 
 -- =============================================================================
--- 🎬 [UPDATED] ЭКРАН ПРИВЕТСТВИЯ С КАРТИНКОЙ (5 СЕКУНД)
+-- 🎬 ФИКС ЭКРАНА ПРИВЕТСТВИЯ (БЕЗ ЧЕРНОГО ФОНА)
 -- =============================================================================
 local IntroBackground = Instance.new("Frame", ScreenGui)
 IntroBackground.Size = UDim2.new(1, 0, 1, 0)
-IntroBackground.BackgroundColor3 = Color3.fromRGB(8, 4, 16)
+IntroBackground.BackgroundTransparency = 1 -- Пофиксено: экран прозрачный, игру видно сразу
 IntroBackground.ZIndex = 500
 
 local IntroFrame = Instance.new("Frame", IntroBackground)
@@ -108,36 +108,35 @@ IntroFrame.BackgroundColor3 = Theme.GlassBg
 IntroFrame.BackgroundTransparency = 0.1
 applyGlassStyle(IntroFrame, 16, Theme.AccentPurple, 2)
 
--- Кастомная картинка вместо старой анимации загрузки
 local IntroImage = Instance.new("ImageLabel", IntroFrame)
-IntroImage.Size = UDim2.new(0, 180, 0, 180)
-IntroImage.Position = UDim2.new(0.5, -90, 0.5, -90)
+IntroImage.Size = UDim2.new(0, 150, 0, 150)
+IntroImage.Position = UDim2.new(0.5, -75, 0.5, -80)
 IntroImage.BackgroundTransparency = 1
 IntroImage.Image = "rbxassetid://79078068171736"
 
 local IntroTitle = Instance.new("TextLabel", IntroFrame)
 IntroTitle.Size = UDim2.new(1, 0, 0, 30)
-IntroTitle.Position = UDim2.new(0, 0, 0, 10)
+IntroTitle.Position = UDim2.new(0, 0, 1, -65)
 IntroTitle.BackgroundTransparency = 1
 IntroTitle.Text = "🪐 CYBER ENGINE"
-IntroTitle.TextColor3 = Theme.AccentCyan
+IntroTitle.TextColor3 = Theme.Text
 IntroTitle.Font = Enum.Font.GothamBold
-IntroTitle.TextSize = 20
+IntroTitle.TextSize = 22
 
 local IntroStatus = Instance.new("TextLabel", IntroFrame)
 IntroStatus.Size = UDim2.new(1, 0, 0, 20)
-IntroStatus.Position = UDim2.new(0, 0, 1, -30)
+IntroStatus.Position = UDim2.new(0, 0, 1, -35)
 IntroStatus.BackgroundTransparency = 1
-IntroStatus.Text = "Загрузка премиум модулей..."
-IntroStatus.TextColor3 = Color3.fromRGB(130, 120, 150)
+IntroStatus.Text = "Инициализация премиум интерфейса..."
+IntroStatus.TextColor3 = Color3.fromRGB(180, 160, 150)
 IntroStatus.Font = Enum.Font.Code
-IntroStatus.TextSize = 11
+IntroStatus.TextSize = 12
 
 -- 🔴 Индикатор записи макроса
 local RecordIndicator = Instance.new("TextLabel", ScreenGui)
 RecordIndicator.Size = UDim2.new(0, 360, 0, 40)
 RecordIndicator.Position = UDim2.new(0.5, -180, 0, 70)
-RecordIndicator.BackgroundColor3 = Color3.fromRGB(20, 5, 5)
+RecordIndicator.BackgroundColor3 = Color3.fromRGB(30, 15, 15)
 RecordIndicator.BackgroundTransparency = 0.3
 RecordIndicator.Text = "🔴 ЗАПИСЬ ИДЕТ... [L - СТОП | E - ПАУЗА]"
 RecordIndicator.TextColor3 = Theme.AlertRed
@@ -159,7 +158,7 @@ applyGlassStyle(ClockWidget, 8, Theme.AccentCyan, 1.2)
 local ClockLabel = Instance.new("TextLabel", ClockWidget)
 ClockLabel.Size = UDim2.new(1, 0, 1, 0)
 ClockLabel.BackgroundTransparency = 1
-ClockLabel.TextColor3 = Theme.AccentCyan
+ClockLabel.TextColor3 = Theme.Text
 ClockLabel.Font = Enum.Font.Code
 ClockLabel.TextSize = 13
 makeDraggable(ClockWidget, ClockWidget)
@@ -211,7 +210,7 @@ local function logToConsole(text)
 	ConsoleLogs.CanvasPosition = Vector2.new(0, 9999)
 end
 
--- Кликер + Триггер + Килл Аура
+-- Автокликеры / Ауры
 task.spawn(function()
 	while true do
 		if States["AutoClick"] then
@@ -248,7 +247,6 @@ task.spawn(function()
 	end
 end)
 
--- Поиск цели Аимбота
 local function getClosestPlayer()
 	local closest = nil
 	local shortestDist = math.huge
@@ -282,46 +280,91 @@ end)
 
 -- ГЛАВНОЕ ОКНО ИНТЕРФЕЙСА
 local MainFrame = Instance.new("Frame", ScreenGui)
-MainFrame.Size = UDim2.new(0, 740, 0, 520)
-MainFrame.Position = UDim2.new(0.5, -370, 0.5, -260)
+MainFrame.Size = UDim2.new(0, 760, 0, 520)
+MainFrame.Position = UDim2.new(0.5, -380, 0.5, -260)
 MainFrame.BackgroundColor3 = Theme.GlassBg
 MainFrame.BackgroundTransparency = Theme.GlassTrans
 MainFrame.Visible = false 
-applyGlassStyle(MainFrame, 16, Theme.AccentPurple, 2)
+applyGlassStyle(MainFrame, 20, Color3.fromRGB(70, 55, 45), 1.5)
 
 local Header = Instance.new("Frame", MainFrame)
 Header.Size = UDim2.new(1, 0, 0, 55)
-Header.BackgroundColor3 = Theme.HeaderBg
-Header.BackgroundTransparency = 0.15
-applyGlassStyle(Header, 16)
+Header.BackgroundTransparency = 1
 makeDraggable(MainFrame, Header)
 
 local MainTitle = Instance.new("TextLabel", Header)
-MainTitle.Size = UDim2.new(1, -50, 1, 0)
+MainTitle.Size = UDim2.new(1, -160, 1, 0)
 MainTitle.Position = UDim2.new(0, 20, 0, 0)
 MainTitle.BackgroundTransparency = 1
-MainTitle.Text = "🪐 CYBER ENGINE V32.5 [👑 СТАБИЛЬНАЯ ВЕРСИЯ • ВСЕ ФУНКЦИИ]"
-MainTitle.TextColor3 = Theme.AccentGreen
+MainTitle.Text = "🪐 THUNDER CYBER MM2"
+MainTitle.TextColor3 = Theme.Text
 MainTitle.Font = Enum.Font.GothamBold
-MainTitle.TextSize = 14
+MainTitle.TextSize = 15
 MainTitle.TextXAlignment = Enum.TextXAlignment.Left
 
+-- Индикатор Версии как на скриншоте
+local VerBadge = Instance.new("TextLabel", Header)
+VerBadge.Size = UDim2.new(0, 100, 0, 24)
+VerBadge.Position = UDim2.new(0, 210, 0.5, -12)
+VerBadge.BackgroundColor3 = Theme.AccentGreen
+VerBadge.Text = "Версия 32.6"
+VerBadge.TextColor3 = Color3.fromRGB(255, 255, 255)
+VerBadge.Font = Enum.Font.GothamBold
+VerBadge.TextSize = 11
+applyGlassStyle(VerBadge, 12)
+
 local Sidebar = Instance.new("Frame", MainFrame)
-Sidebar.Size = UDim2.new(0, 200, 1, -80)
-Sidebar.Position = UDim2.new(0, 15, 0, 70)
+Sidebar.Size = UDim2.new(0, 200, 1, -75)
+Sidebar.Position = UDim2.new(0, 15, 0, 60)
 Sidebar.BackgroundTransparency = 1
 
--- Добавили скроллбар для сайдбара, чтобы влезали новые вкладки
 local SidebarScroll = Instance.new("ScrollingFrame", Sidebar)
-SidebarScroll.Size = UDim2.new(1, 0, 1, 0)
+SidebarScroll.Size = UDim2.new(1, 0, 1, -65) -- Оставили место внизу под профиль
 SidebarScroll.BackgroundTransparency = 1
 SidebarScroll.BorderSizePixel = 0
-SidebarScroll.ScrollBarThickness = 2
+SidebarScroll.ScrollBarThickness = 0
 SidebarScroll.CanvasSize = UDim2.new(0, 0, 0, 0)
 SidebarScroll.AutomaticCanvasSize = Enum.AutomaticSize.Y
 
 local SidebarLayout = Instance.new("UIListLayout", SidebarScroll)
-SidebarLayout.Padding = UDim.new(0, 4)
+SidebarLayout.Padding = UDim.new(0, 5)
+
+-- =============================================================================
+-- 👤 БЛОК ПРОФИЛЯ С КАРТИНКОЙ НИКНЕЙМОМ (КАК НА ФОТО 9fe622d3-77fb-4c61-ba17-5c8aad64280e_2.jpg)
+-- =============================================================================
+local ProfileCard = Instance.new("Frame", Sidebar)
+ProfileCard.Size = UDim2.new(1, -6, 0, 60)
+ProfileCard.Position = UDim2.new(0, 0, 1, -60)
+ProfileCard.BackgroundColor3 = Color3.fromRGB(20, 14, 10)
+ProfileCard.BackgroundTransparency = 0.4
+applyGlassStyle(ProfileCard, 14, Color3.fromRGB(55, 42, 35), 1)
+
+local AvatarImage = Instance.new("ImageLabel", ProfileCard)
+AvatarImage.Size = UDim2.new(0, 42, 0, 42)
+AvatarImage.Position = UDim2.new(0, 10, 0.5, -21)
+AvatarImage.BackgroundTransparency = 1
+AvatarImage.Image = "rbxthumb://type=AvatarHeadShot&id=" .. player.UserId .. "&w=150&h=150"
+applyGlassStyle(AvatarImage, 21) -- Круглый аватар
+
+local DisplayNameLabel = Instance.new("TextLabel", ProfileCard)
+DisplayNameLabel.Size = UDim2.new(1, -65, 0, 18)
+DisplayNameLabel.Position = UDim2.new(0, 60, 0, 12)
+DisplayNameLabel.BackgroundTransparency = 1
+DisplayNameLabel.Text = player.DisplayName
+DisplayNameLabel.TextColor3 = Theme.Text
+DisplayNameLabel.Font = Enum.Font.GothamBold
+DisplayNameLabel.TextSize = 13
+DisplayNameLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+local UsernameLabel = Instance.new("TextLabel", ProfileCard)
+UsernameLabel.Size = UDim2.new(1, -65, 0, 14)
+UsernameLabel.Position = UDim2.new(0, 60, 0, 28)
+UsernameLabel.BackgroundTransparency = 1
+UsernameLabel.Text = "@" .. player.Name
+UsernameLabel.TextColor3 = Color3.fromRGB(160, 145, 135)
+UsernameLabel.Font = Enum.Font.Gotham
+UsernameLabel.TextSize = 11
+UsernameLabel.TextXAlignment = Enum.TextXAlignment.Left
 
 local ContentArea = Instance.new("Frame", MainFrame)
 ContentArea.Size = UDim2.new(1, -250, 1, -85)
@@ -346,64 +389,69 @@ local function createTab(id, title)
 	TabPages[id] = Page
 	
 	local TabBtn = Instance.new("TextButton", SidebarScroll)
-	TabBtn.Size = UDim2.new(1, -6, 0, 32)
-	TabBtn.BackgroundColor3 = Theme.BtnOff
-	TabBtn.BackgroundTransparency = 0.3
+	TabBtn.Size = UDim2.new(1, -6, 0, 36)
+	TabBtn.BackgroundColor3 = Color3.fromRGB(0,0,0)
+	TabBtn.BackgroundTransparency = 1
 	TabBtn.Text = "  " .. title
-	TabBtn.TextColor3 = Color3.fromRGB(150, 150, 170)
+	TabBtn.TextColor3 = Color3.fromRGB(170, 160, 155)
 	TabBtn.Font = Enum.Font.GothamSemibold
-	TabBtn.TextSize = 11
+	TabBtn.TextSize = 13
 	TabBtn.TextXAlignment = Enum.TextXAlignment.Left
-	applyGlassStyle(TabBtn, 8, Color3.fromRGB(45, 35, 70), 1)
+	applyGlassStyle(TabBtn, 10, Color3.fromRGB(0,0,0), 0)
 	
 	TabBtn.Activated:Connect(function()
 		for _, p in pairs(TabPages) do p.Visible = false end
 		for _, b in pairs(TabButtons) do 
-			b.TextColor3 = Color3.fromRGB(150, 150, 170)
-			b.BackgroundColor3 = Theme.BtnOff
-			local s = b:FindFirstChildOfClass("UIStroke")
-			if s then s.Color = Color3.fromRGB(45, 35, 70) end
+			b.TextColor3 = Color3.fromRGB(170, 160, 155)
+			b.BackgroundTransparency = 1
 		end
 		Page.Visible = true
-		TabBtn.TextColor3 = Theme.AccentCyan
-		TabBtn.BackgroundColor3 = Theme.BtnOn
-		local s = TabBtn:FindFirstChildOfClass("UIStroke")
-		if s then s.Color = Theme.AccentCyan end
+		TabBtn.TextColor3 = Theme.Text
+		TabBtn.BackgroundColor3 = Theme.BtnOff
+		TabBtn.BackgroundTransparency = 0.3
 	end)
 	table.insert(TabButtons, TabBtn)
 	return Page
 end
 
+-- =============================================================================
+-- 🎛 ОБНОВЛЕННЫЕ ПИЛЛ-ТУМБЛЕРЫ (КАК НА ФОТО 9fe622d3-77fb-4c61-ba17-5c8aad64280e_2.jpg)
+-- =============================================================================
 local function addToggle(parent, key, title, callback)
 	States[key] = false
 	local Btn = Instance.new("TextButton", parent)
-	Btn.Size = UDim2.new(1, -6, 0, 35)
+	Btn.Size = UDim2.new(1, -6, 0, 42)
 	Btn.BackgroundColor3 = Theme.BtnOff
-	Btn.BackgroundTransparency = 0.2
-	Btn.Text = "  " .. title
+	Btn.BackgroundTransparency = 0.5
+	Btn.Text = "   " .. title
 	Btn.TextColor3 = Theme.Text
 	Btn.Font = Enum.Font.GothamSemibold
-	Btn.TextSize = 11
+	Btn.TextSize = 13
 	Btn.TextXAlignment = Enum.TextXAlignment.Left
-	applyGlassStyle(Btn, 8, Color3.fromRGB(50, 40, 80), 1)
+	applyGlassStyle(Btn, 10, Color3.fromRGB(65, 50, 40), 1)
 	
-	local Ind = Instance.new("Frame", Btn)
-	Ind.Size = UDim2.new(0, 11, 0, 11)
-	Ind.Position = UDim2.new(1, -25, 0.5, -5)
-	Ind.BackgroundColor3 = Color3.fromRGB(90, 30, 45)
-	applyGlassStyle(Ind, 5)
+	-- Овальная плашка тумблера
+	local SwitchBg = Instance.new("Frame", Btn)
+	SwitchBg.Size = UDim2.new(0, 38, 0, 20)
+	SwitchBg.Position = UDim2.new(1, -50, 0.5, -10)
+	SwitchBg.BackgroundColor3 = Color3.fromRGB(90, 80, 75)
+	applyGlassStyle(SwitchBg, 10)
+	
+	-- Подвижный круглый шарик
+	local SwitchBall = Instance.new("Frame", SwitchBg)
+	SwitchBall.Size = UDim2.new(0, 16, 0, 16)
+	SwitchBall.Position = UDim2.new(0, 2, 0.5, -8)
+	SwitchBall.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	applyGlassStyle(SwitchBall, 8)
 
 	Btn.Activated:Connect(function()
 		States[key] = not States[key]
-		local s = Btn:FindFirstChildOfClass("UIStroke")
 		if States[key] then
-			TweenService:Create(Btn, TweenInfo.new(0.1), {BackgroundColor3 = Theme.BtnOn}):Play()
-			TweenService:Create(Ind, TweenInfo.new(0.1), {BackgroundColor3 = Theme.AccentGreen}):Play()
-			if s then s.Color = Theme.AccentCyan end
+			TweenService:Create(SwitchBg, TweenInfo.new(0.15), {BackgroundColor3 = Theme.AccentGreen}):Play()
+			TweenService:Create(SwitchBall, TweenInfo.new(0.15), {Position = UDim2.new(1, -18, 0.5, -8)}):Play()
 		else
-			TweenService:Create(Btn, TweenInfo.new(0.1), {BackgroundColor3 = Theme.BtnOff}):Play()
-			TweenService:Create(Ind, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(90, 30, 45)}):Play()
-			if s then s.Color = Color3.fromRGB(50, 40, 80) end
+			TweenService:Create(SwitchBg, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(90, 80, 75)}):Play()
+			TweenService:Create(SwitchBall, TweenInfo.new(0.15), {Position = UDim2.new(0, 2, 0.5, -8)}):Play()
 		end
 		updateCounter()
 		pcall(callback, States[key])
@@ -413,36 +461,35 @@ end
 
 local function addButton(parent, title, callback)
 	local Btn = Instance.new("TextButton", parent)
-	Btn.Size = UDim2.new(1, -6, 0, 35)
-	Btn.BackgroundColor3 = Color3.fromRGB(35, 20, 55)
+	Btn.Size = UDim2.new(1, -6, 0, 40)
+	Btn.BackgroundColor3 = Theme.BtnOn
+	Btn.BackgroundTransparency = 0.3
 	Btn.Text = "  " .. title
-	Btn.TextColor3 = Theme.AccentCyan
+	Btn.TextColor3 = Theme.Text
 	Btn.Font = Enum.Font.GothamBold
-	Btn.TextSize = 11
+	Btn.TextSize = 12
 	Btn.TextXAlignment = Enum.TextXAlignment.Left
-	applyGlassStyle(Btn, 8, Theme.AccentCyan, 1)
+	applyGlassStyle(Btn, 10, Theme.AccentCyan, 1)
 	
 	Btn.Activated:Connect(function() pcall(callback) end)
 	return Btn
 end
 
--- Сборка Вкладок (Старые сохранены + Добавлена MM2)
-local tMove = createTab("Move", "🧭 Движение / Физика")
-local tCombat = createTab("Combat", "🎯 Бой и Хитбоксы")
-local tVisuals = createTab("Visuals", "👁️ Визуалы / Олд ESP")
+-- Сборка Вкладок (Все старые сохранены!)
+local tMove = createTab("Move", "🧭 Персонаж")
+local tCombat = createTab("Combat", "🎯 Комбат")
+local tVisuals = createTab("Visuals", "👁️ Валлхак / Визуал")
 local tWorld = createTab("World", "🪐 Изменение Мира")
-local tSkin = createTab("Skin", "🎭 Кастомизация Скина")
+local tSkin = createTab("Skin", "🎭 Кастомизация")
 local tMacro = createTab("Macro", "🤖 Умные Макросы")
-local tMM2 = createTab("MM2", "🔪 Murder Mystery 2") -- 🌟 НОВАЯ ВКЛАДКА
-local tUtils = createTab("Utils", "🛠️ Инструменты / Утилиты")
+local tMM2 = createTab("MM2", "🔪 Murder Mystery 2") 
+local tUtils = createTab("Utils", "🛠️ Утилиты / Темы")
 local tRadio = createTab("Radio", "🎵 Радио Плеер")
-local tVip = createTab("VIP", "👑 Лицензия VIP")
 
-TabPages["Macro"].Visible = true
-TabButtons[6].TextColor3 = Theme.AccentCyan
-TabButtons[6].BackgroundColor3 = Theme.BtnOn
-local firstStroke = TabButtons[6]:FindFirstChildOfClass("UIStroke")
-if firstStroke then firstStroke.Color = Theme.AccentCyan end
+TabPages["Move"].Visible = true
+TabButtons[1].BackgroundTransparency = 0.3
+TabButtons[1].BackgroundColor3 = Theme.BtnOff
+TabButtons[1].TextColor3 = Theme.Text
 
 -- Окно настройки макроса
 local MacroSaveFrame = Instance.new("Frame", ScreenGui)
@@ -470,7 +517,7 @@ MacroLoopsInput.Position = UDim2.new(0.5, -130, 0, 55)
 MacroLoopsInput.BackgroundColor3 = Theme.BtnOff
 MacroLoopsInput.PlaceholderText = "Введите число (например: 3)"
 MacroLoopsInput.Text = "1"
-MacroLoopsInput.TextColor3 = Theme.AccentCyan
+MacroLoopsInput.TextColor3 = Theme.Text
 MacroLoopsInput.Font = Enum.Font.Code
 MacroLoopsInput.TextSize = 14
 MacroLoopsInput.ZIndex = 16
@@ -498,7 +545,6 @@ MacroCancelBtn.TextSize = 11
 MacroCancelBtn.ZIndex = 16
 applyGlassStyle(MacroCancelBtn, 8, Theme.AlertRed)
 
--- Рандомизатор макросов
 local function playMacro(loops)
 	if #recordedPath == 0 or isPlaying then return end
 	isPlaying = true
@@ -559,10 +605,8 @@ MacroStartPlayBtn.Activated:Connect(function()
 	task.spawn(playMacro, loops)
 end)
 
--- Обработчик Хоткеев
 UserInputService.InputBegan:Connect(function(input, gpe)
 	if gpe then return end
-	
 	if input.KeyCode == Enum.KeyCode.L then
 		if isRecording then
 			isRecording = false
@@ -571,7 +615,6 @@ UserInputService.InputBegan:Connect(function(input, gpe)
 			logToConsole("🔴 Запись завершена.")
 			MacroSaveFrame.Visible = true
 		end
-		
 	elseif input.KeyCode == Enum.KeyCode.E then
 		if isRecording then
 			isRecordingPaused = not isRecordingPaused
@@ -585,7 +628,6 @@ UserInputService.InputBegan:Connect(function(input, gpe)
 				logToConsole("🚀 Запись макроса возобновлена.")
 			end
 		end
-		
 	elseif input.KeyCode == Enum.KeyCode.M then
 		if isPlaying then
 			isMacroPaused = not isMacroPaused
@@ -598,7 +640,7 @@ UserInputService.InputBegan:Connect(function(input, gpe)
 	end
 end)
 
-addButton(tMacro, "🔴 НАЧАТЬ ЗАПИСЬ АНТИ-ПАЛЕВО (Пробеги трассу сам)", function()
+addButton(tMacro, "🔴 НАЧАТЬ ЗАПИСЬ АНТИ-ПАЛЕВО", function()
 	if isPlaying then logToConsole("⚠️ Нельзя записывать во время повтора!") return end
 	table.clear(recordedPath)
 	isRecording = true
@@ -606,7 +648,7 @@ addButton(tMacro, "🔴 НАЧАТЬ ЗАПИСЬ АНТИ-ПАЛЕВО (Про�
 	RecordIndicator.Text = "🔴 ЗАПИСЬ ИДЕТ... [L - СТОП | E - ПАУЗА]"
 	RecordIndicator.TextColor3 = Theme.AlertRed
 	RecordIndicator.Visible = true
-	logToConsole("🚀 ЗАПИСЬ ПОШЛА! Пробеги трассу. Жми E для Паузы, L для Сейва!")
+	logToConsole("🚀 ЗАПИСЬ ПОШЛА! Пробеги трассу сама.")
 end)
 
 addButton(tMacro, "🛑 АВАРИЙНЫЙ СБРОС ВСЕХ МАКРОСОВ", function()
@@ -617,7 +659,7 @@ addButton(tMacro, "🛑 АВАРИЙНЫЙ СБРОС ВСЕХ МАКРОСОВ"
 	logToConsole("🤖 Макросы полностью отключены.")
 end)
 
--- Административный Полет Fly
+-- Полет
 local flySpeed = 70
 local bv, bg
 local function updateFly(active)
@@ -664,7 +706,6 @@ local function updateFly(active)
 	end
 end
 
--- Нажатие Ctrl + ЛКМ для ТП
 UserInputService.InputBegan:Connect(function(input, gpe)
 	if gpe then return end
 	if States["ClTP"] and input.UserInputType == Enum.UserInputType.MouseButton1 and UserInputService:IsKeyDown(Enum.KeyCode.LeftControl) then
@@ -674,19 +715,19 @@ UserInputService.InputBegan:Connect(function(input, gpe)
 	end
 end)
 
--- Наполнение вкладок
+-- Добавление кнопок и функций в разделы
 addToggle(tMove, "S120", "⚡ Скорость бега х120 Premium", function(v) curSpeed = v and 120 or 16 end)
 addToggle(tMove, "S250", "🔥 Скорость бега х250 Hyper Overload", function(v) curSpeed = v and 250 or 16 end)
 addToggle(tMove, "J180", "🦘 Прыжок х180 Высокий", function(v) curJump = v and 180 or 50 end)
 addToggle(tMove, "J300", "🚀 Прыжок х300 Космический", function(v) curJump = v and 300 or 50 end)
 addToggle(tMove, "InfJ", "☁️ Infinite Jump (Прыжки по воздуху)", function() end)
-addToggle(tMove, "Nocl", "🧱 Noclip (Хождение сквозь любые стены)", function() end)
-addToggle(tMove, "FlyM", "🛸 Полет Админа [W,A,S,D + Space/Ctrl]", function(v) updateFly(v) end)
-addToggle(tMove, "ClTP", "📍 Click TP [Зажать Ctrl + Нажать ЛКМ]", function() end)
-addToggle(tMove, "SpinB", "🌪️ SpinBot (Анти-Аим дикое вращение)", function() end)
-addToggle(tMove, "NoSt", "🚫 Анти-Стул (Иммунитет к авто-сажанию)", function() end)
-addToggle(tMove, "AutoClick", "🖱️ Потоковый макрос-автокликер", function() end)
-addButton(tMove, "🏠 Телепортироваться на Спавн карты", function()
+addToggle(tMove, "Nocl", "🧱 Noclip (Сквозь стены)", function() end)
+addToggle(tMove, "FlyM", "🛸 Полет Админа [W,A,S,D]", function(v) updateFly(v) end)
+addToggle(tMove, "ClTP", "📍 Click TP [Ctrl + ЛКМ]", function() end)
+addToggle(tMove, "SpinB", "🌪️ SpinBot (Вращение)", function() end)
+addToggle(tMove, "NoSt", "🚫 Анти-Стул", function() end)
+addToggle(tMove, "AutoClick", "🖱️ Потоковый автокликер", function() end)
+addButton(tMove, "🏠 Телепортироваться на Спавн", function()
 	if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
 		local spawnPoint = workspace:FindFirstChildOfClass("SpawnLocation")
 		if spawnPoint then player.Character.HumanoidRootPart.CFrame = spawnPoint.CFrame + Vector3.new(0,4,0) end
@@ -710,10 +751,10 @@ addToggle(tMove, "Plat", "🟩 Создать платформу под нога
 end)
 
 addToggle(tCombat, "AimB", "🎯 Премиум Аимбот на головы [Зажать ПКМ]", function() end)
-addToggle(tCombat, "TriggerB", "🔫 Триггербот (Автовыстрел при наведении)", function() end)
-addToggle(tCombat, "HitboxExp", "🥩 Расширение торсов врагов х5 (Хитбоксы)", function() end)
-addToggle(tCombat, "KillA", "⚔️ Kill Aura (Дамаг всем в радиусе 15м)", function() end)
-addToggle(tCombat, "SuperReach", "🧤 Super Reach (Увеличение зоны оружия)", function(v)
+addToggle(tCombat, "TriggerB", "🔫 Триггербот (Автовыстрел)", function() end)
+addToggle(tCombat, "HitboxExp", "🥩 Расширение торсов врагов х5", function() end)
+addToggle(tCombat, "KillA", "⚔️ Kill Aura (Радиус 15м)", function() end)
+addToggle(tCombat, "SuperReach", "🧤 Super Reach", function(v)
 	for _, tool in pairs(player.Backpack:GetChildren()) do
 		if tool:IsA("Tool") and tool:FindFirstChild("Handle") then
 			tool.Handle.Size = v and Vector3.new(10, 10, 10) or Vector3.new(1, 1, 1)
@@ -721,10 +762,10 @@ addToggle(tCombat, "SuperReach", "🧤 Super Reach (Увеличение зон�
 	end
 end)
 
-addToggle(tVisuals, "Cham", "🟢 Chams Сквозь-стены силуэты игроков", function() end)
-addToggle(tVisuals, "Tracers", "📐 Линии-Трейсеры до игроков", function() end)
-addToggle(tVisuals, "EspNames", "🏷️ ESP Names (Никнеймы + ХП сквозь стены)", function() end)
-addToggle(tVisuals, "XRay", "🔮 Включить X-Ray (Прозрачные стены)", function(v)
+addToggle(tVisuals, "Cham", "🟢 Chams Силуэты сквозь стены", function() end)
+addToggle(tVisuals, "Tracers", "📐 Линии-Трейсеры", function() end)
+addToggle(tVisuals, "EspNames", "🏷️ ESP Names (Никнеймы + HP)", function() end)
+addToggle(tVisuals, "XRay", "🔮 Включить X-Ray", function(v)
 	if v then
 		for _, part in pairs(workspace:GetDescendants()) do
 			if part:IsA("BasePart") and not part:FindFirstAncestorOfClass("Model") and part.Anchored then
@@ -736,28 +777,28 @@ addToggle(tVisuals, "XRay", "🔮 Включить X-Ray (Прозрачные �
 		table.clear(xrayCache)
 	end
 end)
-addToggle(tVisuals, "FovM", "👁️ Выставить максимальный FOV камеры 120", function(v) camera.FieldOfView = v and 120 or 70 end)
+addToggle(tVisuals, "FovM", "👁️ Максимальный FOV 120", function(v) camera.FieldOfView = v and 120 or 70 end)
 
-addToggle(tWorld, "Full", "☀️ Fullbright (Удалить тени и ночь)", function(v)
+addToggle(tWorld, "Full", "☀️ Fullbright (Без тени)", function(v)
 	Lighting.Brightness = v and 4 or 2
 	Lighting.Ambient = v and Color3.fromRGB(255,255,255) or Color3.fromRGB(128,128,128)
 end)
-addToggle(tWorld, "FreezeTime", "⏱️ Зафиксировать Время Суток", function() end)
-addToggle(tWorld, "LowG", "🪐 Лунная слабая гравитация", function(v) workspace.Gravity = v and 35 or 196.2 end)
-addToggle(tWorld, "AntiLava", "🌋 Анти-Лава (Иммунитет к Килл-зонам)", function() end)
-addButton(tWorld, "⚡ Оптимизация FPS (Удалить Текстуры)", function()
+addToggle(tWorld, "FreezeTime", "⏱️ Зафиксировать Время", function() end)
+addToggle(tWorld, "LowG", "🪐 Лунная гравитация", function(v) workspace.Gravity = v and 35 or 196.2 end)
+addToggle(tWorld, "AntiLava", "🌋 Анти-Лава", function() end)
+addButton(tWorld, "⚡ Оптимизация FPS", function()
 	for _, v in pairs(workspace:GetDescendants()) do
 		if v:IsA("Texture") or v:IsA("Decal") then v:Destroy() end
 	end
 	logToConsole("Текстуры удалены. FPS оптимизирован!")
 end)
 
-addToggle(tSkin, "Headless", "💀 Локальный Хедлесс (Невидимая голова)", function(v)
+addToggle(tSkin, "Headless", "💀 Локальный Хедлесс", function(v)
 	if player.Character and player.Character:FindFirstChild("Head") then player.Character.Head.Transparency = v and 1 or 0 end
 end)
-addToggle(tSkin, "NeonSkin", "🧪 Неоновое радиоактивное тело", function() end)
-addToggle(tSkin, "RainSkin", "🌈 Переливающийся RGB Радужный скин", function() end)
-addToggle(tSkin, "FireSkin", "🔥 Огненная буря (Персонаж в огне)", function(v)
+addToggle(tSkin, "NeonSkin", "🧪 Неоновое тело", function() end)
+addToggle(tSkin, "RainSkin", "🌈 RGB Радужный скин", function() end)
+addToggle(tSkin, "FireSkin", "🔥 Персонаж в огне", function(v)
 	local char = player.Character
 	if v and char then
 		for _, part in pairs(char:GetChildren()) do
@@ -769,17 +810,15 @@ addToggle(tSkin, "FireSkin", "🔥 Огненная буря (Персонаж �
 		if char then for _, part in pairs(char:GetDescendants()) do if part.Name == "CyberFire" then part:Destroy() end end end
 	end
 end)
-addToggle(tSkin, "Trail", "✨ Неоновый шлейф при ходьбе", function() end)
-addToggle(tSkin, "Halo", "😇 Святой золотой нимб над персонажем", function() end)
+addToggle(tSkin, "Trail", "✨ Шлейф при ходьбе", function() end)
+addToggle(tSkin, "Halo", "😇 Нимб над головой", function() end)
 
--- НАПОЛНЕНИЕ ВКЛАДКИ MURDER MYSTERY 2
-addToggle(tMM2, "Mm2Esp", "👁️ Радар ролей (Убийца - Красный, Шериф - Синий)", function() end)
-addToggle(tMM2, "Mm2GunEsp", "🎯 Подсветка выпавшего Пистолета", function() end)
-addToggle(tMM2, "Mm2Autofarm", "💰 Автосбор монет и улик (Телепорт)", function() end)
-addToggle(tMM2, "Mm2ScamDupe", "💥 СКАМ-ТРЕЙД / ДЮП ВЕЩЕЙ [Кнопка X]", function(v)
-	if v then
-		logToConsole("⚡ Дюп активирован! Кидай трейд, нажимай 'X' на клавиатуре.")
-	end
+-- Вкладка MM2
+addToggle(tMM2, "Mm2Esp", "👁️ Радар ролей (Убийца/Шериф)", function() end)
+addToggle(tMM2, "Mm2GunEsp", "🎯 Подсветка Пистолета", function() end)
+addToggle(tMM2, "Mm2Autofarm", "💰 Автосбор монет/улик", function() end)
+addToggle(tMM2, "Mm2ScamDupe", "💥 СКАМ-ТРЕЙД / ДЮП [Кнопка X]", function(v)
+	if v then logToConsole("⚡ Дюп активирован! Жми 'X' во время трейда.") end
 end)
 addButton(tMM2, "🔫 ТП к Упавшему Пистолету", function()
 	local gun = workspace:FindFirstChild("GunDrop") or workspace:FindFirstChild("Luger") or workspace:FindFirstChild("Revolver")
@@ -787,70 +826,87 @@ addButton(tMM2, "🔫 ТП к Упавшему Пистолету", function()
 		player.Character.HumanoidRootPart.CFrame = gun.CFrame + Vector3.new(0, 2, 0)
 		logToConsole("🎯 Телепортирован к пистолету!")
 	else
-		logToConsole("❌ Упавший пистолет на карте не найден.")
+		logToConsole("❌ Пистолет на карте не найден.")
 	end
 end)
 
--- Слушатель кнопки "X" для быстрого Дюпа в ММ2
 UserInputService.InputBegan:Connect(function(input, gpe)
 	if gpe then return end
 	if States["Mm2ScamDupe"] and input.KeyCode == Enum.KeyCode.X then
-		logToConsole("⚠️ Кнопка нажата! Принятие трейда и отключение...")
-		
-		-- Попытка мгновенного принятия трейда через стандартные MM2 Remotes
 		pcall(function()
 			local ReplicatedStorage = game:GetService("ReplicatedStorage")
 			local tradeRemote = ReplicatedStorage:FindFirstChild("Trade") and ReplicatedStorage.Trade:FindFirstChild("AcceptTrade")
-			if tradeRemote then
-				tradeRemote:FireServer()
-			end
+			if tradeRemote then tradeRemote:FireServer() end
 		end)
-		
 		task.wait(0.05)
-		-- Принудительный моментальный вылет из игры для багоюза сети
-		player:Kick("🪐 [CYBER ENGINE]: Дюп успешно сработал! Соединение разорвано. Проверь инвентарь.")
+		player:Kick("🪐 [CYBER ENGINE]: Дюп успешно сработал! Перезайди.")
 	end
 end)
 
--- НАПОЛНЕНИЕ ВКЛАДКИ UTILS (+ ДОБАВЛЕН DEX)
-addButton(tUtils, "📂 Загрузить DARK DEX (Проводник Карты)", function()
-	logToConsole("Загрузка Dark Dex Explorer...")
-	pcall(function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/DarkDexV4.lua"))()
-	end)
-	logToConsole("Dark Dex успешно внедрен!")
+-- =============================================================================
+-- 🎨 СМЕНА ЦВЕТА ИНТЕРФЕЙСА (БЕЗ УДАЛЕНИЯ СТАРЫХ ФУНКЦИЙ)
+-- =============================================================================
+addButton(tUtils, "🟫 Включить Шоколадную Тему (как на Фото)", function()
+	Theme.GlassBg = Color3.fromRGB(36, 26, 20)
+	Theme.HeaderBg = Color3.fromRGB(46, 33, 25)
+	Theme.AccentCyan = Color3.fromRGB(235, 135, 40)
+	MainFrame.BackgroundColor3 = Theme.GlassBg
+	MainFrame.UIStroke.Color = Color3.fromRGB(70, 55, 45)
+	logToConsole("Цвет изменен на Шоколадный Премиум.")
 end)
-addButton(tUtils, "🛠️ Выдать BTools (Разрушение Карты)", function()
+
+addButton(tUtils, "🔮 Включить Классическую Неоновую Тему", function()
+	Theme.GlassBg = Color3.fromRGB(10, 6, 20)
+	Theme.HeaderBg = Color3.fromRGB(18, 10, 32)
+	Theme.AccentCyan = Color3.fromRGB(0, 240, 255)
+	MainFrame.BackgroundColor3 = Theme.GlassBg
+	MainFrame.UIStroke.Color = Color3.fromRGB(165, 45, 255)
+	logToConsole("Цвет изменен на Классический Неон.")
+end)
+
+addButton(tUtils, "🟢 Включить Изумрудную Тему", function()
+	Theme.GlassBg = Color3.fromRGB(10, 25, 18)
+	Theme.HeaderBg = Color3.fromRGB(15, 35, 25)
+	Theme.AccentCyan = Color3.fromRGB(46, 204, 113)
+	MainFrame.BackgroundColor3 = Theme.GlassBg
+	MainFrame.UIStroke.Color = Color3.fromRGB(46, 204, 113)
+	logToConsole("Цвет изменен на Изумрудный Люкс.")
+end)
+
+-- Остальные утилиты
+addButton(tUtils, "📂 Загрузить DARK DEX", function()
+	pcall(function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/DarkDexV4.lua"))() end)
+end)
+addButton(tUtils, "🛠️ Выдать BTools", function()
 	Instance.new("HopperBin", player.Backpack).BinType = 1
 	Instance.new("HopperBin", player.Backpack).BinType = 3
 	Instance.new("HopperBin", player.Backpack).BinType = 4
-	logToConsole("BTools успешно выданы!")
 end)
-addButton(tUtils, "🌀 Загрузить Infinite Yield (Админ Панель)", function()
+addButton(tUtils, "🌀 Загрузить Infinite Yield", function()
 	pcall(function() loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeY/infiniteyield/master/source'))() end)
 end)
-addButton(tUtils, "🔄 Быстрый Перезапуск Сервера (Rejoin)", function() TeleportService:Teleport(game.PlaceId, player) end)
+addButton(tUtils, "🔄 Быстрый Перезапуск Сервера", function() TeleportService:Teleport(game.PlaceId, player) end)
 
 local function emergencyStop()
 	for k, _ in pairs(States) do States[k] = false end
 	updateCounter(); updateFly(false); isPlaying = false; isRecording = false; isRecordingPaused = false; isMacroPaused = false
 	RecordIndicator.Visible = false; MacroSaveFrame.Visible = false
 	if autoPlatform then autoPlatform:Destroy(); autoPlatform = nil end
-	logToConsole("🚨 КНОПКА ПАНИКИ: Всё отключено!")
+	logToConsole("🚨 ВСЕ МОДЫ ВЫКЛЮЧЕНЫ!")
 end
 
 local PanicBtn = addToggle(tRadio, "Panic", "🚨 КНОПКА ПАНИКИ (ВЫКЛЮЧИТЬ ВСЁ)", function(v) if v then emergencyStop() end end)
 PanicBtn.BackgroundColor3 = Theme.AlertRed
-addToggle(tRadio, "GoldUI", "👑 Переливающаяся рамка интерфейса", function() end)
+addToggle(tRadio, "GoldUI", "👑 Переливающаяся рамка", function() end)
 
-local AdminPanel = Instance.new("Frame", tVip)
-AdminPanel.Size = UDim2.new(1, 0, 1, 0); AdminPanel.BackgroundTransparency = 1
+local AdminPanel = Instance.new("Frame", tRadio)
+AdminPanel.Size = UDim2.new(1, 0, 0, 120); AdminPanel.BackgroundTransparency = 1
 
-ConsoleLogs.Size = UDim2.new(1, -10, 0, 230); ConsoleLogs.Position = UDim2.new(0, 5, 0, 5)
-ConsoleLogs.BackgroundColor3 = Color3.fromRGB(6, 4, 12); ConsoleLogs.ScrollBarThickness = 2
+ConsoleLogs.Size = UDim2.new(1, -10, 0, 100); ConsoleLogs.Position = UDim2.new(0, 5, 0, 5)
+ConsoleLogs.BackgroundColor3 = Color3.fromRGB(15, 10, 8)
+ConsoleLogs.ScrollBarThickness = 2
 ConsoleLogs.Parent = AdminPanel; applyGlassStyle(ConsoleLogs, 8, Theme.AccentGreen)
 
--- Главный Синхронизатор
 local rgbTick = 0
 local tracersFolder = ScreenGui:FindFirstChild("TracersFolder") or Instance.new("Folder", ScreenGui)
 tracersFolder.Name = "TracersFolder"
@@ -880,7 +936,6 @@ RunService.Heartbeat:Connect(function()
 		if States["NoSt"] and hum.Sit then hum.Sit = false end
 		if States["SpinB"] then root.CFrame = root.CFrame * CFrame.Angles(0, math.rad(40), 0) end
 		if States["FreezeTime"] then Lighting.ClockTime = 14 end
-
 		if States["Nocl"] then
 			for _, part in pairs(pChar:GetChildren()) do if part:IsA("BasePart") then part.CanCollide = false end end
 		end
@@ -891,7 +946,6 @@ RunService.Heartbeat:Connect(function()
 			end
 		end
 
-		-- Логика автофарма монет MM2
 		if States["Mm2Autofarm"] then
 			for _, c in pairs(workspace:GetDescendants()) do
 				if c:IsA("TouchTransmitter") and (c.Parent.Name == "Coin" or c.Parent.Name == "Snowflake" or c.Parent.Name == "CandyCane") then
@@ -940,7 +994,6 @@ RunService.Heartbeat:Connect(function()
 
 		tracersFolder:ClearAllChildren()
 		
-		-- ESP для Обычных Игроков и ММ2
 		for _, enemy in ipairs(Players:GetPlayers()) do
 			if enemy ~= player and enemy.Character and enemy.Character:FindFirstChild("HumanoidRootPart") then
 				if States["HitboxExp"] then
@@ -953,17 +1006,15 @@ RunService.Heartbeat:Connect(function()
 				local hLight = enemy.Character:FindFirstChild("MaxHighlight")
 				if States["Cham"] or States["Mm2Esp"] then
 					if not hLight then hLight = Instance.new("Highlight", enemy.Character); hLight.Name = "MaxHighlight" end
-					
-					-- Определение цветов для MM2 Радара Ролей
 					if States["Mm2Esp"] then
 						if enemy.Backpack:FindFirstChild("Knife") or enemy.Character:FindFirstChild("Knife") then
-							hLight.FillColor = Color3.fromRGB(255, 0, 50) -- Убийца
+							hLight.FillColor = Color3.fromRGB(255, 0, 50)
 							hLight.OutlineColor = Color3.fromRGB(255, 255, 255)
 						elseif enemy.Backpack:FindFirstChild("Gun") or enemy.Character:FindFirstChild("Gun") then
-							hLight.FillColor = Color3.fromRGB(0, 100, 255) -- Шериф
+							hLight.FillColor = Color3.fromRGB(0, 100, 255)
 							hLight.OutlineColor = Color3.fromRGB(255, 255, 255)
 						else
-							hLight.FillColor = Color3.fromRGB(100, 200, 100) -- Мирный
+							hLight.FillColor = Color3.fromRGB(100, 200, 100)
 							hLight.OutlineColor = Color3.fromRGB(50, 50, 50)
 						end
 					else
@@ -1006,7 +1057,6 @@ RunService.Heartbeat:Connect(function()
 			end
 		end
 
-		-- Подсветка упавшего пистолета в ММ2
 		if States["Mm2GunEsp"] then
 			local gunDrop = workspace:FindFirstChild("GunDrop")
 			if gunDrop and not gunDrop:FindFirstChild("GunHighlight") then
@@ -1037,32 +1087,24 @@ UserInputService.InputBegan:Connect(function(inp, gpe)
 	if not gpe and inp.KeyCode == Enum.KeyCode.RightShift then invertMenuState() end
 end)
 
--- =============================================================================
--- 🎬 ЗАПУСК ОБНОВЛЕННОЙ АНИМАЦИИ ПРИВЕТСТВИЯ С КАРТИНКОЙ НА 5 СЕКУНД
--- =============================================================================
+-- Запуск анимации приветствия (ровно 5 секунд, игра видна!)
 task.spawn(function()
-	-- Просто держим картинку на экране ровно 5 секунд, как ты и просил
 	task.wait(5)
+	logToConsole("🪐 CYBER ENGINE: Успешно запущено!")
 	
-	logToConsole("🪐 CYBER ENGINE V32.5: Инициализация успешна!")
-	
-	-- Растворение интро экрана
-	local fadeBg = TweenService:Create(IntroBackground, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 1})
-	local fadeFrame = TweenService:Create(IntroFrame, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 1})
+	local fadeFrame = TweenService:Create(IntroFrame, TweenInfo.new(0.4), {BackgroundTransparency = 1})
 	local fadeTitle = TweenService:Create(IntroTitle, TweenInfo.new(0.2), {TextTransparency = 1})
 	local fadeStatus = TweenService:Create(IntroStatus, TweenInfo.new(0.2), {TextTransparency = 1})
-	local fadeImg = TweenService:Create(IntroImage, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {ImageTransparency = 1})
+	local fadeImg = TweenService:Create(IntroImage, TweenInfo.new(0.3), {ImageTransparency = 1})
 	
-	fadeBg:Play()
 	fadeFrame:Play()
 	fadeTitle:Play()
 	fadeStatus:Play()
 	fadeImg:Play()
 	
-	fadeBg.Completed:Wait()
+	fadeFrame.Completed:Wait()
 	IntroBackground:Destroy()
 	
-	-- Показываем основной премиум интерфейс
 	MainFrame.Visible = true
 	ClockWidget.Visible = true
 	CounterWidget.Visible = true
