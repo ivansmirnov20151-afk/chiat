@@ -35,7 +35,7 @@ ScreenGui.ResetOnSpawn = false
 ScreenGui.IgnoreGuiInset = true
 ScreenGui.Parent = playerGui
 
--- Стартовая тема на основе фото 9fe622d3-77fb-4c61-ba17-5c8aad64280e_2.jpg
+-- Стартовая тема на основе фото 
 local Theme = {
 	GlassBg = Color3.fromRGB(36, 26, 20),
 	GlassTrans = 0.12,
@@ -75,6 +75,56 @@ local function applyGlassStyle(obj, radius, strokeColor, strokeThickness)
 	end
 end
 
+-- =============================================================================
+-- 🔔 ДИНАМИЧЕСКАЯ СИСТЕМА УВЕДОМЛЕНИЙ (ПОЯВЛЯЮТСЯ СВЕРХУ)
+-- =============================================================================
+local function createNotification(titleText, descText, noticeType)
+	local notifyFrame = Instance.new("Frame", ScreenGui)
+	notifyFrame.Size = UDim2.new(0, 350, 0, 70)
+	notifyFrame.Position = UDim2.new(0.5, -175, 0, -90) -- Начальная позиция за экраном
+	notifyFrame.BackgroundColor3 = Theme.GlassBg
+	notifyFrame.BackgroundTransparency = 0.05
+	
+	local strokeColor = (noticeType == "Alert") and Theme.AlertRed or Theme.AccentCyan
+	applyGlassStyle(notifyFrame, 12, strokeColor, 2)
+	notifyFrame.ZIndex = 10000 -- Поверх абсолютно всех окон чита!
+
+	local tLabel = Instance.new("TextLabel", notifyFrame)
+	tLabel.Size = UDim2.new(1, -20, 0, 25)
+	tLabel.Position = UDim2.new(0, 15, 0, 10)
+	tLabel.Text = titleText
+	tLabel.TextColor3 = (noticeType == "Alert") and Theme.AlertRed or Theme.Text
+	tLabel.Font = Enum.Font.GothamBold
+	tLabel.TextSize = 15
+	tLabel.BackgroundTransparency = 1
+	tLabel.TextXAlignment = Enum.TextXAlignment.Center
+	tLabel.ZIndex = 10001
+
+	local dLabel = Instance.new("TextLabel", notifyFrame)
+	dLabel.Size = UDim2.new(1, -20, 0, 25)
+	dLabel.Position = UDim2.new(0, 15, 0, 35)
+	dLabel.Text = descText
+	dLabel.TextColor3 = Theme.Text
+	dLabel.Font = Enum.Font.GothamBold
+	dLabel.TextSize = 13
+	dLabel.BackgroundTransparency = 1
+	dLabel.TextXAlignment = Enum.TextXAlignment.Center
+	dLabel.ZIndex = 10001
+
+	-- Анимация появления сверху
+	TweenService:Create(notifyFrame, TweenInfo.new(0.4, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Position = UDim2.new(0.5, -175, 0, 40)}):Play()
+	
+	-- Автоматическое скрытие через 4 секунды
+	task.delay(4, function()
+		if notifyFrame and notifyFrame.Parent then
+			local tweenOut = TweenService:Create(notifyFrame, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {Position = UDim2.new(0.5, -175, 0, -90)})
+			tweenOut:Play()
+			tweenOut.Completed:Wait()
+			notifyFrame:Destroy()
+		end
+	end)
+end
+
 local function makeDraggable(frame, handle)
 	local dragging, dragStart, startPos
 	handle.InputBegan:Connect(function(input)
@@ -94,11 +144,11 @@ local function makeDraggable(frame, handle)
 end
 
 -- =============================================================================
--- 🎬 ФИКС ЭКРАНА ПРИВЕТСТВИЯ (БЕЗ ЧЕРНОГО ФОНА)
+-- 🎬 ЭКРАН ПРИВЕТСТВИЯ
 -- =============================================================================
 local IntroBackground = Instance.new("Frame", ScreenGui)
 IntroBackground.Size = UDim2.new(1, 0, 1, 0)
-IntroBackground.BackgroundTransparency = 1 -- Пофиксено: экран прозрачный, игру видно сразу
+IntroBackground.BackgroundTransparency = 1 
 IntroBackground.ZIndex = 500
 
 local IntroFrame = Instance.new("Frame", IntroBackground)
@@ -302,7 +352,6 @@ MainTitle.Font = Enum.Font.GothamBold
 MainTitle.TextSize = 15
 MainTitle.TextXAlignment = Enum.TextXAlignment.Left
 
--- Индикатор Версии как на скриншоте
 local VerBadge = Instance.new("TextLabel", Header)
 VerBadge.Size = UDim2.new(0, 100, 0, 24)
 VerBadge.Position = UDim2.new(0, 210, 0.5, -12)
@@ -319,7 +368,7 @@ Sidebar.Position = UDim2.new(0, 15, 0, 60)
 Sidebar.BackgroundTransparency = 1
 
 local SidebarScroll = Instance.new("ScrollingFrame", Sidebar)
-SidebarScroll.Size = UDim2.new(1, 0, 1, -65) -- Оставили место внизу под профиль
+SidebarScroll.Size = UDim2.new(1, 0, 1, -65)
 SidebarScroll.BackgroundTransparency = 1
 SidebarScroll.BorderSizePixel = 0
 SidebarScroll.ScrollBarThickness = 0
@@ -329,9 +378,7 @@ SidebarScroll.AutomaticCanvasSize = Enum.AutomaticSize.Y
 local SidebarLayout = Instance.new("UIListLayout", SidebarScroll)
 SidebarLayout.Padding = UDim.new(0, 5)
 
--- =============================================================================
--- 👤 БЛОК ПРОФИЛЯ С КАРТИНКОЙ НИКНЕЙМОМ (КАК НА ФОТО 9fe622d3-77fb-4c61-ba17-5c8aad64280e_2.jpg)
--- =============================================================================
+-- Профиль
 local ProfileCard = Instance.new("Frame", Sidebar)
 ProfileCard.Size = UDim2.new(1, -6, 0, 60)
 ProfileCard.Position = UDim2.new(0, 0, 1, -60)
@@ -344,7 +391,7 @@ AvatarImage.Size = UDim2.new(0, 42, 0, 42)
 AvatarImage.Position = UDim2.new(0, 10, 0.5, -21)
 AvatarImage.BackgroundTransparency = 1
 AvatarImage.Image = "rbxthumb://type=AvatarHeadShot&id=" .. player.UserId .. "&w=150&h=150"
-applyGlassStyle(AvatarImage, 21) -- Круглый аватар
+applyGlassStyle(AvatarImage, 21)
 
 local DisplayNameLabel = Instance.new("TextLabel", ProfileCard)
 DisplayNameLabel.Size = UDim2.new(1, -65, 0, 18)
@@ -414,9 +461,6 @@ local function createTab(id, title)
 	return Page
 end
 
--- =============================================================================
--- 🎛 ОБНОВЛЕННЫЕ ПИЛЛ-ТУМБЛЕРЫ (КАК НА ФОТО 9fe622d3-77fb-4c61-ba17-5c8aad64280e_2.jpg)
--- =============================================================================
 local function addToggle(parent, key, title, callback)
 	States[key] = false
 	local Btn = Instance.new("TextButton", parent)
@@ -430,14 +474,12 @@ local function addToggle(parent, key, title, callback)
 	Btn.TextXAlignment = Enum.TextXAlignment.Left
 	applyGlassStyle(Btn, 10, Color3.fromRGB(65, 50, 40), 1)
 	
-	-- Овальная плашка тумблера
 	local SwitchBg = Instance.new("Frame", Btn)
 	SwitchBg.Size = UDim2.new(0, 38, 0, 20)
 	SwitchBg.Position = UDim2.new(1, -50, 0.5, -10)
 	SwitchBg.BackgroundColor3 = Color3.fromRGB(90, 80, 75)
 	applyGlassStyle(SwitchBg, 10)
 	
-	-- Подвижный круглый шарик
 	local SwitchBall = Instance.new("Frame", SwitchBg)
 	SwitchBall.Size = UDim2.new(0, 16, 0, 16)
 	SwitchBall.Position = UDim2.new(0, 2, 0.5, -8)
@@ -475,7 +517,7 @@ local function addButton(parent, title, callback)
 	return Btn
 end
 
--- Сборка Вкладок (Все старые сохранены!)
+-- Сборка Вкладок
 local tMove = createTab("Move", "🧭 Персонаж")
 local tCombat = createTab("Combat", "🎯 Комбат")
 local tVisuals = createTab("Visuals", "👁️ Валлхак / Визуал")
@@ -715,9 +757,10 @@ UserInputService.InputBegan:Connect(function(input, gpe)
 	end
 end)
 
--- Добавление кнопок и функций в разделы
+-- Наполнение разделов
 addToggle(tMove, "S120", "⚡ Скорость бега х120 Premium", function(v) curSpeed = v and 120 or 16 end)
 addToggle(tMove, "S250", "🔥 Скорость бега х250 Hyper Overload", function(v) curSpeed = v and 250 or 16 end)
+addToggle(tMove, "S500", "👑 VIP Скорость х500 GOD MODE", function(v) curSpeed = v and 500 or 16 end) -- Новая функция
 addToggle(tMove, "J180", "🦘 Прыжок х180 Высокий", function(v) curJump = v and 180 or 50 end)
 addToggle(tMove, "J300", "🚀 Прыжок х300 Космический", function(v) curJump = v and 300 or 50 end)
 addToggle(tMove, "InfJ", "☁️ Infinite Jump (Прыжки по воздуху)", function() end)
@@ -813,7 +856,122 @@ end)
 addToggle(tSkin, "Trail", "✨ Шлейф при ходьбе", function() end)
 addToggle(tSkin, "Halo", "😇 Нимб над головой", function() end)
 
--- Вкладка MM2
+-- =============================================================================
+-- 🔪 ОБНОВЛЕННАЯ ВКЛАДКА MM2 (ПОЛНОСТЬЮ РАБОЧАЯ)
+-- =============================================================================
+local lastAlertTime = 0
+
+local function getMurderer()
+	for _, p in ipairs(Players:GetPlayers()) do
+		if p ~= player and p.Character then
+			if p.Backpack:FindFirstChild("Knife") or p.Character:FindFirstChild("Knife") or
+			   p.Backpack:FindFirstChild(" нож") or p.Character:FindFirstChild(" нож") then
+				return p
+			end
+		end
+	end
+	return nil
+end
+
+local function getSheriff()
+	for _, p in ipairs(Players:GetPlayers()) do
+		if p.Character and (p.Backpack:FindFirstChild("Gun") or p.Character:FindFirstChild("Gun")) then
+			return p
+		end
+	end
+	return nil
+end
+
+local function getRandomInnocent()
+	local candidates = {}
+	local mud = getMurderer()
+	for _, p in ipairs(Players:GetPlayers()) do
+		if p ~= player and p ~= mud and p.Character and p.Character:FindFirstChild("HumanoidRootPart") then
+			local hum = p.Character:FindFirstChildOfClass("Humanoid")
+			if hum and hum.Health > 0 then
+				table.insert(candidates, p)
+			end
+		end
+	end
+	if #candidates > 0 then
+		return candidates[math.random(1, #candidates)]
+	end
+	return nil
+end
+
+local function findTargetPlayer(namePart)
+	if not namePart or namePart == "" then return nil end
+	namePart = namePart:lower()
+	for _, p in ipairs(Players:GetPlayers()) do
+		if p.Name:lower():sub(1, #namePart) == namePart or p.DisplayName:lower():sub(1, #namePart) == namePart then
+			return p
+		end
+	end
+	return nil
+end
+
+addToggle(tMM2, "InvisMock", "👻 Режим Невидимости", function(v)
+	local char = player.Character
+	if char then
+		for _, part in pairs(char:GetDescendants()) do
+			if part:IsA("BasePart") or part:IsA("Decal") then
+				if part.Name ~= "HumanoidRootPart" then
+					part.Transparency = v and 1 or 0
+				end
+			end
+		end
+	end
+end)
+
+addButton(tMM2, "📍 ТП к Убийце", function()
+	local mud = getMurderer()
+	if mud and mud.Character and mud.Character:FindFirstChild("HumanoidRootPart") and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+		player.Character.HumanoidRootPart.CFrame = mud.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, 3)
+		createNotification("НАВИГАЦИЯ", "Успешно телепортирован к Убийце!", "Info")
+	else
+		createNotification("ОШИБКА", "Убийца на карте пока не найден.", "Alert")
+	end
+end)
+
+addButton(tMM2, "📍 ТП к Шерифу", function()
+	local sh = getSheriff()
+	if sh and sh.Character and sh.Character:FindFirstChild("HumanoidRootPart") and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+		player.Character.HumanoidRootPart.CFrame = sh.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, 3)
+		createNotification("НАВИГАЦИЯ", "Успешно телепортирован к Шерифу!", "Info")
+	else
+		createNotification("ОШИБКА", "Шериф на карте пока не найден.", "Alert")
+	end
+end)
+
+addToggle(tMM2, "AlertMurderer", "🚨 Детектор: Предупреждать о Мардере", function(v)
+	if v then createNotification("ДЕТЕКТОР", "Слежка за Мардером запущена.", "Info") end
+end)
+
+-- Поле ввода никнейма для Флинга
+local FlingInput = Instance.new("TextBox", tMM2)
+FlingInput.Size = UDim2.new(1, -6, 0, 35)
+FlingInput.BackgroundColor3 = Theme.BtnOff
+FlingInput.PlaceholderText = "Введите ник игрока для Флинга..."
+FlingInput.Text = ""
+FlingInput.TextColor3 = Theme.Text
+FlingInput.Font = Enum.Font.GothamSemibold
+FlingInput.TextSize = 12
+applyGlassStyle(FlingInput, 10, Theme.AccentPurple, 1)
+
+addToggle(tMM2, "FlingToggle", "🌪️ Активировать Флинг", function(v)
+	if v then 
+		createNotification("ФЛИНГ", "Атака на игрока запущена!", "Info") 
+	else
+		if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+			player.Character.HumanoidRootPart.Velocity = Vector3.new(0, 0, 0)
+		end
+	end
+end)
+
+addToggle(tMM2, "SmartEvac", "🤖 Смарт-эвакуация (Авто-ТП от Мардера)", function(v)
+	if v then createNotification("ЭВАКУАЦИЯ", "Авто-эвакуация готова.", "Info") end
+end)
+
 addToggle(tMM2, "Mm2Esp", "👁️ Радар ролей (Убийца/Шериф)", function() end)
 addToggle(tMM2, "Mm2GunEsp", "🎯 Подсветка Пистолета", function() end)
 addToggle(tMM2, "Mm2Autofarm", "💰 Автосбор монет/улик", function() end)
@@ -843,9 +1001,7 @@ UserInputService.InputBegan:Connect(function(input, gpe)
 	end
 end)
 
--- =============================================================================
--- 🎨 СМЕНА ЦВЕТА ИНТЕРФЕЙСА (БЕЗ УДАЛЕНИЯ СТАРЫХ ФУНКЦИЙ)
--- =============================================================================
+-- Темы
 addButton(tUtils, "🟫 Включить Шоколадную Тему (как на Фото)", function()
 	Theme.GlassBg = Color3.fromRGB(36, 26, 20)
 	Theme.HeaderBg = Color3.fromRGB(46, 33, 25)
@@ -873,7 +1029,6 @@ addButton(tUtils, "🟢 Включить Изумрудную Тему", functio
 	logToConsole("Цвет изменен на Изумрудный Люкс.")
 end)
 
--- Остальные утилиты
 addButton(tUtils, "📂 Загрузить DARK DEX", function()
 	pcall(function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/DarkDexV4.lua"))() end)
 end)
@@ -929,7 +1084,7 @@ RunService.Heartbeat:Connect(function()
 		end
 		
 		if not isPlaying then
-			if States["S120"] or States["S250"] then hum.WalkSpeed = curSpeed end
+			if States["S120"] or States["S250"] or States["S500"] then hum.WalkSpeed = curSpeed end -- Фикс под х500
 			if States["J180"] or States["J300"] then hum.UseJumpPower = true; hum.JumpPower = curJump end
 		end
 		
@@ -952,6 +1107,36 @@ RunService.Heartbeat:Connect(function()
 					root.CFrame = c.Parent.CFrame
 					break
 				end
+			end
+		end
+
+		if States["AlertMurderer"] then
+			local mud = getMurderer()
+			if mud and mud.Character and mud.Character:FindFirstChild("HumanoidRootPart") then
+				local mRoot = mud.Character.HumanoidRootPart
+				local distance = (root.Position - mRoot.Position).Magnitude
+				
+				if distance <= 40 then
+					if tick() - lastAlertTime > 4 then
+						lastAlertTime = tick()
+						createNotification("🚨 ВНИМАНИЕ! 🚨", "МАРДЕР БЛИЗКО! БЕГИ!", "Alert")
+					end
+					
+					if States["SmartEvac"] then
+						local targetPlayer = getRandomInnocent()
+						if targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart") then
+							root.CFrame = targetPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0, 3, 0)
+						end
+					end
+				end
+			end
+		end
+
+		if States["FlingToggle"] then
+			local target = findTargetPlayer(FlingInput.Text)
+			if target and target.Character and target.Character:FindFirstChild("HumanoidRootPart") then
+				root.CFrame = target.Character.HumanoidRootPart.CFrame * CFrame.Angles(0, math.rad(rgbTick * 5000), 0)
+				root.Velocity = Vector3.new(99999, 99999, 99999)
 			end
 		end
 
@@ -1007,7 +1192,8 @@ RunService.Heartbeat:Connect(function()
 				if States["Cham"] or States["Mm2Esp"] then
 					if not hLight then hLight = Instance.new("Highlight", enemy.Character); hLight.Name = "MaxHighlight" end
 					if States["Mm2Esp"] then
-						if enemy.Backpack:FindFirstChild("Knife") or enemy.Character:FindFirstChild("Knife") then
+						if enemy.Backpack:FindFirstChild("Knife") or enemy.Character:FindFirstChild("Knife") or
+						   enemy.Backpack:FindFirstChild(" нож") or enemy.Character:FindFirstChild(" нож") then
 							hLight.FillColor = Color3.fromRGB(255, 0, 50)
 							hLight.OutlineColor = Color3.fromRGB(255, 255, 255)
 						elseif enemy.Backpack:FindFirstChild("Gun") or enemy.Character:FindFirstChild("Gun") then
@@ -1080,17 +1266,105 @@ ToggleMenuBtn.BackgroundColor3 = Theme.HeaderBg; ToggleMenuBtn.Image = "rbxasset
 ToggleMenuBtn.Visible = false 
 applyGlassStyle(ToggleMenuBtn, 14, Theme.AccentCyan, 1.5)
 
-local function invertMenuState() MainFrame.Visible = not MainFrame.Visible end
+local function invertMenuState() 
+	-- Меню открывается только если окно ключа уничтожено (ключ подошел)
+	if not ScreenGui:FindFirstChild("KeySystemWindow") then
+		MainFrame.Visible = not MainFrame.Visible 
+	end
+end
 ToggleMenuBtn.Activated:Connect(invertMenuState)
 
 UserInputService.InputBegan:Connect(function(inp, gpe)
 	if not gpe and inp.KeyCode == Enum.KeyCode.RightShift then invertMenuState() end
 end)
 
--- Запуск анимации приветствия (ровно 5 секунд, игра видна!)
+-- =============================================================================
+-- 🔑 МОДУЛЬ СИСТЕМЫ КЛЮЧЕЙ (KEY SYSTEM UI)
+-- =============================================================================
+local MasterKey = "free-key-2082949236" -- Сюда вписывай свой ключ!
+
+local KeySystemFrame = Instance.new("Frame", ScreenGui)
+KeySystemFrame.Name = "KeySystemWindow"
+KeySystemFrame.Size = UDim2.new(0, 380, 0, 210)
+KeySystemFrame.Position = UDim2.new(0.5, -190, 0.5, -105)
+KeySystemFrame.BackgroundColor3 = Theme.GlassBg
+KeySystemFrame.BackgroundTransparency = 0.05
+KeySystemFrame.Visible = false
+applyGlassStyle(KeySystemFrame, 16, Theme.AccentPurple, 2)
+makeDraggable(KeySystemFrame, KeySystemFrame)
+
+local KeyTitle = Instance.new("TextLabel", KeySystemFrame)
+KeyTitle.Size = UDim2.new(1, 0, 0, 45)
+KeyTitle.BackgroundTransparency = 1
+KeyTitle.Text = "🔑 ТРЕБУЕТСЯ КЛЮЧ VIP ДОСТУПА"
+KeyTitle.TextColor3 = Theme.Gold
+KeyTitle.Font = Enum.Font.GothamBold
+KeyTitle.TextSize = 13
+
+local KeyInput = Instance.new("TextBox", KeySystemFrame)
+KeyInput.Size = UDim2.new(0, 300, 0, 38)
+KeyInput.Position = UDim2.new(0.5, -150, 0, 65)
+KeyInput.BackgroundColor3 = Theme.BtnOff
+KeyInput.PlaceholderText = "Вставьте секретный ключ сюда..."
+KeyInput.Text = ""
+KeyInput.TextColor3 = Theme.Text
+KeyInput.Font = Enum.Font.Code
+KeyInput.TextSize = 13
+applyGlassStyle(KeyInput, 10, Theme.AccentCyan)
+
+local KeySubmitBtn = Instance.new("TextButton", KeySystemFrame)
+KeySubmitBtn.Size = UDim2.new(0, 145, 0, 38)
+KeySubmitBtn.Position = UDim2.new(0.5, -150, 0, 125)
+KeySubmitBtn.BackgroundColor3 = Theme.BtnOn
+KeySubmitBtn.Text = "🚪 ПРОВЕРИТЬ КЛЮЧ"
+KeySubmitBtn.TextColor3 = Theme.AccentGreen
+KeySubmitBtn.Font = Enum.Font.GothamBold
+KeySubmitBtn.TextSize = 11
+applyGlassStyle(KeySubmitBtn, 10, Theme.AccentGreen)
+
+local GetKeyBtn = Instance.new("TextButton", KeySystemFrame)
+GetKeyBtn.Size = UDim2.new(0, 145, 0, 38)
+GetKeyBtn.Position = UDim2.new(0.5, 5, 0, 125)
+GetKeyBtn.BackgroundColor3 = Theme.BtnOff
+GetKeyBtn.Text = "🌐 ПОЛУЧИТЬ КЛЮЧ"
+GetKeyBtn.TextColor3 = Theme.AccentCyan
+GetKeyBtn.Font = Enum.Font.GothamBold
+GetKeyBtn.TextSize = 11
+applyGlassStyle(GetKeyBtn, 10, Theme.AccentCyan)
+
+KeySubmitBtn.Activated:Connect(function()
+	if KeyInput.Text == MasterKey then
+		createNotification("🔑 ДОСТУП РАЗРЕШЕН", "Успешная авторизация в Cyber Engine!", "Info")
+		KeySystemFrame:Destroy()
+		
+		-- Активация чита
+		MainFrame.Visible = true
+		ClockWidget.Visible = true
+		CounterWidget.Visible = true
+		ToggleMenuBtn.Visible = true
+		logToConsole("🪐 CYBER ENGINE: Успешно запущено!")
+	else
+		createNotification("❌ ОШИБКА ДОСТУПА", "Неверный ключ! Попробуйте еще раз.", "Alert")
+		KeyInput.Text = ""
+	end
+end)
+
+GetKeyBtn.Activated:Connect(function()
+	if setclipboard then
+		setclipboard(MasterKey)
+		createNotification("СКОПИРОВАНО", "Тестовый ключ скопирован в буфер обмена!", "Info")
+	else
+		KeyInput.Text = MasterKey
+		createNotification("ПОДСКАЗКА", "Ключ автоматически вставлен в поле ввода!", "Info")
+	end
+end)
+
+-- =============================================================================
+-- 🎬 ЗАПУСК
+-- =============================================================================
 task.spawn(function()
 	task.wait(5)
-	logToConsole("🪐 CYBER ENGINE: Успешно запущено!")
+	logToConsole("🪐 CYBER ENGINE: Загрузка завершена. Ожидание авторизации...")
 	
 	local fadeFrame = TweenService:Create(IntroFrame, TweenInfo.new(0.4), {BackgroundTransparency = 1})
 	local fadeTitle = TweenService:Create(IntroTitle, TweenInfo.new(0.2), {TextTransparency = 1})
@@ -1105,8 +1379,6 @@ task.spawn(function()
 	fadeFrame.Completed:Wait()
 	IntroBackground:Destroy()
 	
-	MainFrame.Visible = true
-	ClockWidget.Visible = true
-	CounterWidget.Visible = true
-	ToggleMenuBtn.Visible = true
+	-- Показываем систему ввода ключа вместо главного экрана
+	KeySystemFrame.Visible = true
 end)
