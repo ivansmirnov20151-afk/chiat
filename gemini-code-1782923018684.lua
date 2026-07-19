@@ -1,136 +1,79 @@
--- Создание интерфейса
-local CoreGui = game:GetService("CoreGui")
+-- Настройки
 local TweenService = game:GetService("TweenService")
-local Lighting = game:GetService("Lighting")
+local Players = game:GetService("Players")
+local localPlayer = Players.LocalPlayer
 
--- Проверка на повторный запуск (чтобы интерфейсы не накладывались)
-if CoreGui:FindFirstChild("XenoNotification") then
-    CoreGui.XenoNotification:Destroy()
-end
+-- Создание интерфейса
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "RobloxVisualsLoading"
+ScreenGui.Parent = localPlayer:WaitForChild("PlayerGui")
+ScreenGui.ResetOnSpawn = false
 
-local XenoNotification = Instance.new("ScreenGui")
-XenoNotification.Name = "XenoNotification"
-XenoNotification.Parent = CoreGui
-XenoNotification.ResetOnSpawn = false
+-- Задний фон (размытие или затемнение)
+local Background = Instance.new("Frame")
+Background.Size = UDim2.new(1, 0, 1, 0)
+Background.BackgroundColor3 = Color3.fromRGB(15, 15, 15) -- Темный стильный фон
+Background.BackgroundTransparency = 1 -- Начинаем с прозрачного для плавности
+Background.Parent = ScreenGui
 
--- Добавляем эффект размытия на задний план
-local Blur = Instance.new("BlurEffect")
-Blur.Size = 0
-Blur.Parent = Lighting
-TweenService:Create(Blur, TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = 15}):Play()
-
--- Главный фрейм (Окно)
+-- Контейнер для текста
 local MainFrame = Instance.new("Frame")
-MainFrame.Name = "MainFrame"
-MainFrame.Size = UDim2.new(0, 450, 0, 250)
-MainFrame.Position = UDim2.new(0.5, -225, 0.5, -125)
-MainFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-MainFrame.BorderSizePixel = 0
-MainFrame.ClipsDescendants = true
-MainFrame.Parent = XenoNotification
-
--- Скругление углов
-local UICorner = Instance.new("UICorner")
-UICorner.CornerRadius = UDim.new(0, 12)
-UICorner.Parent = MainFrame
-
--- Обводка
-local UIStroke = Instance.new("UIStroke")
-UIStroke.Color = Color3.fromRGB(45, 45, 45)
-UIStroke.Thickness = 1.5
-UIStroke.Parent = MainFrame
-
--- Заголовок
-local Title = Instance.new("TextLabel")
-Title.Name = "Title"
-Title.Size = UDim2.new(1, 0, 0, 40)
-Title.Position = UDim2.new(0, 0, 0, 10)
-Title.BackgroundTransparency = 1
-Title.Font = Enum.Font.GothamBold
-Title.Text = "XENO BETA"
-Title.TextColor3 = Color3.fromRGB(255, 65, 65) -- Красный акцент для важного уведомления
-Title.TextSize = 18
-Title.Parent = MainFrame
-
--- Текст сообщения
-local Message = Instance.new("TextLabel")
-Message.Name = "Message"
-Message.Size = UDim2.new(1, -40, 0, 120)
-Message.Position = UDim2.new(0, 20, 0, 50)
-Message.BackgroundTransparency = 1
-Message.Font = Enum.Font.Gotham
-Message.Text = "Приносим извинения, но нам придётся завершить нашу работу бэта версии, так как поддерживание бэты имел маленький срок, но срок использования закончился. Спасибо, что вы были с нами!"
-Message.TextColor3 = Color3.fromRGB(220, 220, 220)
-Message.TextSize = 14
-Message.TextWrapped = true
-Message.TextYAlignment = Enum.TextYAlignment.Top
-Message.Parent = MainFrame
-
--- Кнопка Закрыть
-local CloseButton = Instance.new("TextButton")
-CloseButton.Name = "CloseButton"
-CloseButton.Size = UDim2.new(0, 150, 0, 35)
-CloseButton.Position = UDim2.new(0.5, -75, 1, -55)
-CloseButton.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-CloseButton.Font = Enum.Font.GothamMedium
-CloseButton.Text = "Закрыть"
-CloseButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-CloseButton.TextSize = 14
-CloseButton.Parent = MainFrame
-
-local ButtonCorner = Instance.new("UICorner")
-ButtonCorner.CornerRadius = UDim.new(0, 6)
-ButtonCorner.Parent = CloseButton
-
-local ButtonStroke = Instance.new("UIStroke")
-ButtonStroke.Color = Color3.fromRGB(50, 50, 50)
-ButtonStroke.Thickness = 1
-ButtonStroke.Parent = CloseButton
-
--- Анимация появления (плавное проявление)
+MainFrame.Size = UDim2.new(0, 500, 0, 250)
+MainFrame.Position = UDim2.new(0.5, -250, 0.5, -125)
 MainFrame.BackgroundTransparency = 1
-Title.TextTransparency = 1
-Message.TextTransparency = 1
-CloseButton.BackgroundTransparency = 1
-CloseButton.TextTransparency = 1
-UIStroke.Transparency = 1
-ButtonStroke.Transparency = 1
+MainFrame.Parent = Background
 
-local function fadeIn()
-    local info = TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
-    TweenService:Create(MainFrame, info, {BackgroundTransparency = 0}):Play()
-    TweenService:Create(Title, info, {TextTransparency = 0}):Play()
-    TweenService:Create(Message, info, {TextTransparency = 0}):Play()
-    TweenService:Create(CloseButton, info, {BackgroundTransparency = 0}):Play()
-    TweenService:Create(CloseButton, info, {TextTransparency = 0}):Play()
-    TweenService:Create(UIStroke, info, {Transparency = 0}):Play()
-    TweenService:Create(ButtonStroke, info, {Transparency = 0}):Play()
+-- Текст заголовка (Roblox Visuals)
+local TitleLabel = Instance.new("TextLabel")
+TitleLabel.Size = UDim2.new(1, 0, 0, 40)
+TitleLabel.Position = UDim2.new(0, 0, 0, 0)
+TitleLabel.BackgroundTransparency = 1
+TitleLabel.Text = "ROBLOX VISUALS — ЗАГРУЗКА"
+TitleLabel.TextColor3 = Color3.fromRGB(0, 170, 255) -- Красивый голубой цвет
+TitleLabel.TextSize = 24
+TitleLabel.Font = Enum.Font.GothamBold
+TitleLabel.TextTransparency = 1
+TitleLabel.Parent = MainFrame
+
+-- Основной текст сообщения
+local MessageLabel = Instance.new("TextLabel")
+MessageLabel.Size = UDim2.new(1, 0, 0, 180)
+MessageLabel.Position = UDim2.new(0, 0, 0, 50)
+MessageLabel.BackgroundTransparency = 1
+MessageLabel.Text = "Здравствуйте, " .. localPlayer.Name .. "!\nМы будем скоро доступны.\n\nПодписка была оплачена недавно.\nГитхаб перегружен, подождите, пожалуйста, 5 минут.\nПосле этого скрипт заработает.\n\nС уважением, GitHub."
+MessageLabel.TextColor3 = Color3.fromRGB(240, 240, 240)
+MessageLabel.TextSize = 16
+MessageLabel.Font = Enum.Font.Gotham
+MessageLabel.TextWrapped = true
+MessageLabel.TextTransparency = 1
+MessageLabel.Parent = MainFrame
+
+-- Функция для плавного изменения прозрачности (Tween)
+local function fadeIn(object, targetTransparency, duration)
+	local tweenInfo = TweenInfo.new(duration, Enum.EasingStyle.Quint, Enum.EasingDirection.Out)
+	local tween = TweenService:Create(object, tweenInfo, {TextTransparency = targetTransparency})
+	tween:Play()
+	return tween
 end
 
-fadeIn()
+-- Плавное появление фона
+local bgTween = TweenService:Create(Background, TweenInfo.new(1, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {BackgroundTransparency = 0.15})
+bgTween:Play()
+task.wait(0.5)
 
--- Эффекты при наведении на кнопку
-CloseButton.MouseEnter:Connect(function()
-    TweenService:Create(CloseButton, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(45, 45, 45)}):Play()
-end)
+-- Плавное появление заголовка
+fadeIn(TitleLabel, 0, 1)
+task.wait(0.5)
 
-CloseButton.MouseLeave:Connect(function()
-    TweenService:Create(CloseButton, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(35, 35, 35)}):Play()
-end)
+-- Плавное появление основного текста
+fadeIn(MessageLabel, 0, 1)
 
--- Закрытие интерфейса с анимацией затухания
-CloseButton.MouseButton1Click:Connect(function()
-    local info = TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.In)
-    TweenService:Create(Blur, info, {Size = 0}):Play()
-    TweenService:Create(MainFrame, info, {BackgroundTransparency = 1}):Play()
-    TweenService:Create(Title, info, {TextTransparency = 1}):Play()
-    TweenService:Create(Message, info, {TextTransparency = 1}):Play()
-    TweenService:Create(CloseButton, info, {BackgroundTransparency = 1}):Play()
-    TweenService:Create(CloseButton, info, {TextTransparency = 1}):Play()
-    TweenService:Create(UIStroke, info, {Transparency = 1}):Play()
-    TweenService:Create(ButtonStroke, info, {Transparency = 1}):Play()
-    
-    task.wait(0.3)
-    XenoNotification:Destroy()
-    Blur:Destroy()
+-- Эффект мигания загрузки (чтобы было видно, что скрипт не завис)
+spawn(function()
+	while true do
+		for i = 1, 3 do
+			TitleLabel.Text = "ROBLOX VISUALS — ЗАГРУЗКА" .. string.rep(".", i)
+			task.wait(0.5)
+		end
+	end
 end)
