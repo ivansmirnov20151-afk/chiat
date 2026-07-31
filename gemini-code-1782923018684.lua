@@ -52,7 +52,7 @@ local isBypassUser = getSpecialStatus(player) ~= nil
 
 -- Добавляйте заблокированных пользователей в формате ["Ник"] = "Причина".
 local BanList = {
-	-- ["ExamplePlayer"] = "Нарушение правил Roblox Visuals",
+	 ["Daniil2014815"] = "Нарушение правил Roblox Visuals",
 }
 local banReason = BanList[player.Name] or BanList[player.Name:lower()]
 local banSequenceStarted = false
