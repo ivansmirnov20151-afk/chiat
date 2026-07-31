@@ -1,7 +1,7 @@
 {
   "device_type": "pc",
   "user_label": "test",
-  "happ_key": "hysteria2://Jz40_mIJ934vK0_k9D3jz92_Vx48q_GHa1_sz0@93.114.194.117:8443/?sni=grape-zet-ro-turbo.bumbleshrimp.com#%F0%9F%87%A9%F0%9F%87%AA%20Germany%2C%20Frankfurt%20am%20Main%20%7C%20%5BBL%5D",
+  "happ_key": "vless://6af3672b-8994-4cf1-aa15-23ce6574ebf0@94.183.170.104:25311?encryption=none&fp=qq&mode=gun&pbk=HLXkRdO5mG922Ohb41SkRglI-aec3enQzilWZqO4-Us&security=reality&serviceName=auragrpc&sid=e7c3f9a2b6d4f8e1&sni=cloudflare.com&type=grpc#%F0%9F%87%AA%F0%9F%87%AA%20Estonia%2C%20Tallinn%20%28Lasnam%C3%A4e%20linnaosa%29%20%7C%20%5BBL%5D",
   "expires_at": "2026-09-10T12:00:00",
   "gb_per_day": 5,
   "minutes_per_day": 120,
