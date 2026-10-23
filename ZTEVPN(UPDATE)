@@ -1,7 +1,7 @@
 # profile-title:ZTEVPN 
 # profile-update-interval: 5
 # Date/Time: 2026-10-10 / 20:47 
-#announce: ZTEVPN | 📶 пинг → выбор | 📅 подписка до 25.09.26 | 👥 устройства 13 из 11 | 📉 лимит урезан | ⛔ VPN будет отключён 22.10.26 в 00:00 МСК | 🔐 обычный VPN | Сайт https://ivansmirnov20151-afk.github.io/vpn/ ДЛЯ РЕШЕНИЯ ПРОБЛЕМ ПЕРЕЙДИТЕ НА САЙТ
+#announce: ZTEVPN | 📶 пинг → выбор | 📅 подписка до 25.09.26 | 👥 устройства 13 из 11 | 📉 лимит INF GB | ⛔ VPN будет отключён 22.12.26 в 00:00 МСК | 🔐 обычный VPN | Сайт https://ivansmirnov20151-afk.github.io/vpn/ ДЛЯ РЕШЕНИЯ ПРОБЛЕМ ПЕРЕЙДИТЕ НА САЙТ
 #subscription-userinfo: upload=0; download=0; total=16106127360; expire=1792886400
 #problems 📌 Проблема подписки ZTEVPN
 • Подписка: до 25.09.26
@@ -13,32 +13,31 @@
 
 Суть: превышен лимит устройств, из-за этого лимит урезан и VPN отключится 22.10.26 в 00:00 МСК.
 Для решения проблемы напешите нам в MAX или TELEGRAMM 
-vless://6f8a7c2e-1b3d-4f5a-9c8e-2d7f1a4b6c9d@example.com:443?type=tcp&security=none&encryption=none#%D0%A2%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D1%8B%D0%B9%20VPN%20%E2%80%94%20%D0%BC%D0%BE%D0%B6%D0%B5%D1%82%20%D0%BD%D0%B5%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%D1%82%D1%8C
-vless://b9bfa54d-bc44-4592-a6d6-89a9665d286f@163.245.42.48:443?encryption=none&type=tcp&security=reality&pbk=SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc&flow=xtls-rprx-vision&sni=mother-earth.fyi&fp=chrome#🇩🇪 Германия
-vless://ebd1c0d6-7ff4-4b9f-8692-237517a27a64@104.171.133.209:443?security=reality&encryption=none&pbk=mza5Hn1aolSz65qu-UwvBP3oesxMe25r11o4nxvikF0&headerType=none&type=tcp&flow=xtls-rprx-vision&sni=anyfile2file.com&sid=64c1fe36c7846400#🇷🇺 Россия
-vless://07104d25-afc5-4b3b-a871-c729c57de047@86.109.75.183:443?type=tcp&security=reality&flow=xtls-rprx-vision&fp=firefox&pbk=Abp__UEbRjj_fRvYa_u-B-I8XoHVUkGmc1ofMBMqHT4&sni=ww.remnahoysry.ru&encryption=none#🇺🇸 США
-vless://9c794bb7-54fe-4acd-844a-a26209af36c3@138.124.4.224:443?type=tcp&security=reality&flow=xtls-rprx-vision&fp=ios&pbk=13nLTYkdBEFR-A4CfK2beOx-5LKEsXh1QHPq8Kt52BQ&sid=7271129440ade8fa&sni=login.sakhweb.fyi&encryption=none#🇪🇪 Эстония
-vless://e75ad2eb-6c1f-45ce-8023-f5f10875df66@205.237.110.254:443?type=tcp&security=reality&flow=xtls-rprx-vision&fp=firefox&pbk=IG6lxrx_xkGOoBuo3DC8sgQoIFmqVgznIr0qOuNO0w4&sid=cd2d53510b4df2a8&sni=zsit.eu-cdn294.com&encryption=none#🇬🇧 Великобритания
-vless://3b1fa839-2cb9-4511-9711-08800450aea3@50.7.193.147:443?type=raw&security=reality&flow=xtls-rprx-vision&fp=firefox&pbk=OINuDFEDTdmtFR8QRxAZfQIMPA-wJxfGN1LjB3TFUHo&sid=535a3304&sni=apiv12nd.goonars.com&encryption=none#🇬🇧 Великобритания
-vless://3b1fa839-2cb9-4511-9711-08800450aea3@195.189.98.197:443?type=tcp&security=reality&flow=xtls-rprx-vision&fp=firefox&pbk=92lzqaBZnD5IP_subNDLotGMBs4u7STDMhqoBz1OADE&sid=b7a5c406&sni=api37.betust.net&encryption=none#🇳🇱 Нидерланды
-vless://3b1fa839-2cb9-4511-9711-08800450aea3@195.189.98.123:443?type=raw&security=reality&flow=xtls-rprx-vision&fp=firefox&pbk=7dxSNJKvSZNySuiKjuv6wwddd3hYJeJy6X55OcwOPDk&sid=16fbc56c&sni=api14.betust.net&encryption=none#🇳🇱 Нидерланды
-vless://07104d25-afc5-4b3b-a871-c729c57de047@94.26.41.225:443?type=tcp&security=reality&flow=xtls-rprx-vision&fp=ios&pbk=Abp__UEbRjj_fRvYa_u-B-I8XoHVUkGmc1ofMBMqHT4&sni=qq.remnahoysry.ru&encryption=none#🇩🇪 Германия
-vless://f8d52ece-fad4-478d-875d-df6eed3befa7@177.3.222.100:443?type=tcp&security=reality&flow=xtls-rprx-vision&fp=firefox&pbk=5fkwwCKZzMsE6Eb_b3iqluu-1AWIfnYl-p0N3EL9Al8&sid=2c9a2790ad5900b2&sni=ge-s-1.pythonmakemigreat.wiki&encryption=none#🇩🇪 Германия
-vless://3b1fa839-2cb9-4511-9711-08800450aea3@84.32.177.63:443?type=tcp&security=reality&flow=xtls-rprx-vision&fp=firefox&pbk=xNzdfy4hPv-IgM_MSn64FNQdb-UPu78pmM-GBE1HhSo&sid=ef5d4ad5&sni=app.betust.net&encryption=none#🇳🇱 Нидерланды
-vless://3b1fa839-2cb9-4511-9711-08800450aea3@84.32.98.246:443?type=tcp&security=reality&flow=xtls-rprx-vision&fp=firefox&pbk=TRaUsnzFf-AhWUuW4RQUQOBYTdM-qJdLDTTkzQNkcRw&sid=f70764f8&sni=tickets.betust.net&encryption=none#🇩🇪 Германия
-vless://9c794bb7-54fe-4acd-844a-a26209af36c3@195.58.134.26:443?security=reality&encryption=none&pbk=13nLTYkdBEFR-A4CfK2beOx-5LKEsXh1QHPq8Kt52BQ&headerType=none&fp=chrome&type=tcp&flow=xtls-rprx-vision&sni=login.mskvibe.fyi&sid=7271129440ade8fa#🇬🇧 Великобритания
-vless://a500be68-4ff6-433b-9968-472be69fab14@77.239.110.89:443?encryption=none&flow=xtls-rprx-vision&pbk=ui9MLRYZIz7S6_1E4fZgoamwTypfQAMwJ1olxGcWomE&security=reality&sid=fc70174007a393b4&sni=netherlands02.azotvpn.xyz&type=tcp&fp=firefox#🇳🇱 Нидерланды
-vless://5131b5e9-2c3c-44a0-8f18-0641f3f21cac@l415ng0o.himoy.space:443?encryption=none&type=tcp&flow=xtls-rprx-vision&security=reality&pbk=JOoD5ze_pwrMnQoAIRVieQM8SPJjiLJEw1fwx57iYgk&sni=l415ng0o.himoy.space&fp=firefox&sid=bbd20b213341644c#🇪🇪 Эстония
-vless://5131b5e9-2c3c-44a0-8f18-0641f3f21cac@lv1.himoy.space:443?encryption=none&type=tcp&flow=xtls-rprx-vision&security=reality&pbk=aow1gjMhnsFXqOuIulX3HBWiGI7m488euLPH6G5fcFA&sni=lv1.himoy.space&fp=firefox&sid=3446a8095e1788b4#🇱🇻 Латвия
-ss://YWVzLTI1Ni1nY206aXR6dnBuQDMyMQ==@57.131.48.45:8388#🇮🇹 Италия
-ss://YWVzLTI1Ni1nY206UmV4bkJnVTdFVjVBRHhH@94.156.250.148:7001#🇬🇧 Великобритания
-trojan://4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA@de1.dedushka.top:443?alpn=http%2F1.1&security=tls&sni=de1.dedushka.top&type=tcp#🇩🇪 Германия
-vmess://eyJhZGQiOiIxMzQuMTk1LjE5Ni4yMTEiLCJhaWQiOiIwIiwiYWxwbiI6IiIsImZwIjoiIiwiaG9zdCI6IiIsImlkIjoiZjhjOGRjM2QtMGQzNy00NmIwLThiMzQtYTcyMzI4ODJmY2ZlIiwiaW5zZWN1cmUiOiIwIiwibmV0IjoidGNwIiwicGF0aCI6IiIsInBvcnQiOiIxODAwMCIsInBzIjoi8J+HqPCfh6YgW0JMXSDQodC10YDQstC10YAgMjMzIiwic2N5IjoiYXV0byIsInNuaSI6IiIsInRscyI6IiIsInR5cGUiOiJub25lIiwidiI6IjIifQ==#🇨🇦 Канада
-ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpvWklvQTY5UTh5aGNRVjhrYTNQYTNB@82.38.31.16:8080#🇳🇱 Нидерланды
-ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpvWklvQTY5UTh5aGNRVjhrYTNQYTNB@82.38.31.48:8080#🇳🇱 Нидерланды
-ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprMWRCT21PQjRvcWk3VW1wMzdhMWJR@82.38.31.202:8080#🇳🇱 Нидерланды
-ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpvWklvQTY5UTh5aGNRVjhrYTNQYTNB@82.38.31.174:8080#🇳🇱 Нидерланды
-ss://YWVzLTEyOC1nY206c2hhZG93c29ja3M=@149.22.95.183:443#🇨🇦 Канада
-ss://YWVzLTEyOC1nY206c2hhZG93c29ja3M=@149.22.87.241:443#🇯🇵 Япония
+vless://d3b07384-d9a1-4e9a-8f3b-2c1a4d5e6f70@example.com:443?type=tcp&security=none&encryption=none#%D0%91%D0%B5%D0%B7%D0%BB%D0%B8%D0%BC%D0%B8%D1%82%20%E2%88%9E%20%7C%20%D0%91%D0%B5%D0%BB%D1%8B%D0%B5%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B8%20%D0%BE%D1%82%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D1%8B
+vless://15397019-2fda-406a-9012-4b219a27bc88@95.85.253.155:443?encryption=none&flow=xtls-rprx-vision&fp=firefox&pbk=Su5ULcRQKF-0DJIHZeTNEnXHBpyQtizmUrcNIYhZI0E&security=reality&sid=afee962d&sni=pl07.launch.tel&type=tcp#🇵🇱 Ｐｏｌａｎｄ
+vless://0af34045-3d5e-4abe-bc8a-16e356daa214@50.7.28.211:443?security=tls&sni=api-v3-0af34045.vmagnum.win&fp=firefox&type=xhttp&path=%2F&mode=auto&packetEncoding=xudp&encryption=none#🇩🇪 Ｇｅｒｍａｎｙ
+vless://15397019-2fda-406a-9012-4b219a27bc88@87.251.85.146:443?encryption=none&flow=xtls-rprx-vision&fp=firefox&pbk=Su5ULcRQKF-0DJIHZeTNEnXHBpyQtizmUrcNIYhZI0E&security=reality&sid=afee962d&sni=sw03.launch.tel&type=tcp#🇸🇪 Ｓｗｅｄｅｎ
+vless://495c7195-85b8-498a-bf20-2ea9ce9175b5@138.124.54.223:443?encryption=none&security=tls&type=ws&host=snip.edgeoneai.cc.cd&path=%2F&sni=snip.edgeoneai.cc.cd&fp=chrome#🇩🇪 Ｇｅｒｍａｎｙ
+vless://2ed71363-5fd3-4859-9254-0003e395848c@170.101.111.27:443/?type=tcp&encryption=none&flow=xtls-rprx-vision&sni=filesconvert.org&fp=qq&security=reality&pbk=U_E3xSI6QY_Mj-3zjkB4esvMj0aVvYH6W6oHOR50XBs&sid=10debbdf94767541#🇩🇪 Ｇｅｒｍａｎｙ
+vless://f259a2e5-fd8d-4db9-a3ac-6b26322cffa9@31.59.143.242:34451?encryption=none&fp=firefox&host=pl-cfe6b10b7f.shamanapp.online&path=%2FShamanXHTTP2026&security=tls&sni=pl-cfe6b10b7f.shamanapp.online&type=xhttp#🇵🇱 Ｐｏｌａｎｄ
+vless://495c7195-85b8-498a-bf20-2ea9ce9175b5@103.160.59.198:443?security=tls&fp=chrome&sni=snip.edgeoneai.cc.cd&type=ws&headerType=none&host=snip.edgeoneai.cc.cd&path=%2F&encryption=none#🇩🇪 Ｇｅｒｍａｎｙ
+vless://495c7195-85b8-498a-bf20-2ea9ce9175b5@91.99.52.229:443?encryption=none&type=ws&path=%2F&host=snip.edgeoneai.cc.cd&security=tls&sni=snip.edgeoneai.cc.cd&fp=chrome#🇫🇷 Ｆｒａｎｃｅ
+vless://495c7195-85b8-498a-bf20-2ea9ce9175b5@177.1.187.183:443?encryption=none&type=ws&path=%2F&host=snip.edgeoneai.cc.cd&security=tls&sni=snip.edgeoneai.cc.cd&fp=chrome#🇩🇪 Ｇｅｒｍａｎｙ
+vless://ebd1c0d6-7ff4-4b9f-8692-237517a27a64@tgfree.rush-server.com:443?security=reality&encryption=none&pbk=mza5Hn1aolSz65qu-UwvBP3oesxMe25r11o4nxvikF0&headerType=none&fp=ios&type=tcp&flow=xtls-rprx-vision&sni=anyfile2file.com&sid=64c1fe36c7846400#🇷🇺 Ｒｕｓｓｉａ
+vless://495c7195-85b8-498a-bf20-2ea9ce9175b5@77.239.104.229:443?security=tls&fp=chrome&sni=snip.edgeoneai.cc.cd&type=ws&headerType=none&host=snip.edgeoneai.cc.cd&path=%2F&encryption=none#🇩🇪 Ｇｅｒｍａｎｙ
+vless://495c7195-85b8-498a-bf20-2ea9ce9175b5@89.127.210.245:2053?security=tls&fp=chrome&sni=snip.edgeoneai.cc.cd&type=ws&headerType=none&host=snip.edgeoneai.cc.cd&path=%2F&encryption=none#🇩🇪 Ｇｅｒｍａｎｙ
+vless://495c7195-85b8-498a-bf20-2ea9ce9175b5@103.13.211.236:443?encryption=none&fp=firefox&host=snip.edgeoneai.cc.cd&security=tls&sni=snip.edgeoneai.cc.cd&type=ws#🇩🇪 Ｇｅｒｍａｎｙ
+vless://495c7195-85b8-498a-bf20-2ea9ce9175b5@91.149.167.147:8443?security=tls&fp=chrome&sni=snip.edgeoneai.cc.cd&type=ws&headerType=none&host=snip.edgeoneai.cc.cd&path=%2F&encryption=none#🇵🇱 Ｐｏｌａｎｄ
+ss://YWVzLTI1Ni1nY206WlJwZ2FCZUd4dEVOSVhndmhwa1pCS3o5R25XUlMyZFljeDlPK2EyaXdOND0=@202.50.253.54:19999#🇮🇹 Ｉｔａｌｙ
+vless://495c7195-85b8-498a-bf20-2ea9ce9175b5@94.159.100.154:443?security=tls&type=ws&path=%2F&host=snip.edgeoneai.cc.cd&sni=snip.edgeoneai.cc.cd&fp=chrome&encryption=none#🇩🇪 Ｇｅｒｍａｎｙ
+vless://495c7195-85b8-498a-bf20-2ea9ce9175b5@109.69.22.15:443?security=tls&fp=chrome&sni=snip.edgeoneai.cc.cd&type=ws&headerType=none&host=snip.edgeoneai.cc.cd&path=%2F&encryption=none#🇸🇪 Ｓｗｅｄｅｎ
+vless://495c7195-85b8-498a-bf20-2ea9ce9175b5@77.90.45.250:443?encryption=none&type=ws&path=%2F&host=snip.edgeoneai.cc.cd&security=tls&sni=snip.edgeoneai.cc.cd&fp=chrome#🇩🇪 Ｇｅｒｍａｎｙ
+vless://fc21089b-9d5d-4285-8a36-dab4b83d1699@193.233.244.110:8443?encryption=none&fp=firefox&path=%2Fxhttp&pbk=CfNBTIsftRSg56DcYqqFTug11Ff4IirfnbUAzyL6ZmE&security=reality&sid=39a5886e503ec5ab&sni=cdn-plng.cahmes.space&type=xhttp#🇵🇱 Ｐｏｌａｎｄ
+vless://81a227e3-cb97-40fe-b7b6-45a60ed065cf@45.141.118.232:7443?type=tcp&security=reality&flow=xtls-rprx-vision&fp=firefox&pbk=0BVxZKOt6wO0jIB1xRkAAtaFUkmyFAbVWfkkKSJBfEI&sid=570ffeb12f6e4635&sni=node.remnagecsp.ru&encryption=none#🇬🇧 Ｕｎｉｔｅｄ Ｋｉｎｇｄｏｍ
+vless://5131b5e9-2c3c-44a0-8f18-0641f3f21cac@95.85.227.79:443?encryption=none&flow=xtls-rprx-vision&fp=firefox&pbk=eq1GsjxpRmENTkUfjk_QPWUUqGNHwESqoJ7yFs-WpF0&security=reality&sid=7f9831bb156cc9e2&sni=pl2.himoy.space&type=tcp#🇵🇱 Ｐｏｌａｎｄ
+vless://15397019-2fda-406a-9012-4b219a27bc88@94.183.179.173:443?encryption=none&flow=xtls-rprx-vision&fp=firefox&pbk=Su5ULcRQKF-0DJIHZeTNEnXHBpyQtizmUrcNIYhZI0E&security=reality&sid=afee962d&sni=uk02.launch.tel&type=tcp#🇬🇧 Ｕｎｉｔｅｄ Ｋｉｎｇｄｏｍ
+vless://2ed71363-5fd3-4859-9254-0003e395848c@178.107.60.251:443/?type=tcp&encryption=none&flow=xtls-rprx-vision&sni=filesconvert.org&fp=qq&security=reality&pbk=U_E3xSI6QY_Mj-3zjkB4esvMj0aVvYH6W6oHOR50XBs&sid=10debbdf94767541#🇬🇧 Ｕｎｉｔｅｄ Ｋｉｎｇｄｏｍ
+vless://35da102e-536b-4103-9632-58c7c4c6303b@2.56.126.64:443?encryption=none&flow=xtls-rprx-vision&fp=firefox&pbk=ltQ7842eBLUE37uQ_g5BVxtyzr6o1xr1bfs0roiHOGI&security=reality&sid=eecfe76af97a6132&sni=pl3.originmesh.online&type=tcp#🇵🇱 Ｐｏｌａｎｄ
+vless://495c7195-85b8-498a-bf20-2ea9ce9175b5@45.157.233.109:2087?encryption=none&security=tls&type=ws&host=snip.edgeoneai.cc.cd&path=%2F&sni=snip.edgeoneai.cc.cd&fp=chrome#🇩🇪 Ｇｅｒｍａｎｙ
 vless://d3b07384-d9a1-4e9a-8f3b-2c1a4d5e6f70@example.com:443?type=tcp&security=none&encryption=none#Белые%20списки%20отключены%2C%20так%20как%20они%20связаны%20с%20серверами%20Яндекса
 
