@@ -1,35 +1,33 @@
 # profile-title:ZTEVPN 
 # profile-update-interval: 5
 # Date/Time: 2026-10-10 / 20:47 
-#announce: ZTEVPN | 📶 пинг → выбор | 📅 подписка до 25.09.26 | 👥 устройства 10 из 110 | 📉 лимит INF GB  | 🔐 обычный VPN | Сайт https://ivansmirnov20151-afk.github.io/vpn/ ДЛЯ РЕШЕНИЯ ПРОБЛЕМ ПЕРЕЙДИТЕ НА САЙТ
+#announce: ZTEVPN | 📶 пинг → выбор | 📅 подписка до 25.09.26 | 👥 устройства 10 из 110 | 📉 лимит 25 GB  | 🔐 обычный VPN | Сайт https://ivansmirnov20151-afk.github.io/vpn/ ДЛЯ РЕШЕНИЯ ПРОБЛЕМ ПЕРЕЙДИТЕ НА САЙТ
 #subscription-userinfo: upload=0; download=0; total=16106127360; expire=1792886400
 #problems БЕЛЫЕ СПИСКИ НЕРАБОТАЮТ 
 vless://7c9e6679-7425-40de-944b-e07fc1f90ae7@104.21.32.1:443?type=tcp&security=reality&sni=yahoo.com&fp=chrome&pbk=1a2b3c4d5e6f7g8h9i0j&sid=ab12cd34#%F0%9F%92%B3%20%D0%9F%D0%BE%D0%B4%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%20Undess%20%7C%20%D0%9A%20%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D0%B5%3A%20250%20%E2%82%BD%0A%F0%9F%9A%AB%20%D0%91%D0%B5%D0%B7%D0%BB%D0%B8%D0%BC%D0%B8%D1%82%20%D0%BE%D1%82%D0%BA%D0%BB.%20%D0%B4%D0%BE%2001.12.26
 
-vless://9bd0f300-082d-4bf3-9f9a-6df689d36b2b@45.14.165.62:11811?flow=xtls-rprx-vision&security=reality&sni=cdn.dom.gosuslugi.ru&fp=firefox&pbk=lDw4rTS3T3KS11F92ZtDMJGmbdUJn_IdwpUNgZhGPko&sid=3a&encryption=none&type=tcp#🇫🇮 ▪ FINLAND
+vless://de32225b-374c-4a6a-830e-7c4e367fcfb5@46.183.21.169:443?flow=xtls-rprx-vision&type=raw&security=reality&sni=mxzfn.klyck.online&pbk=y070kpnC4ztcJp523O7L87JkxhMQhXOUYrjh-uP_PzI&sid=ef50ff080d648308&fp=firefox&encryption=none#🇸🇪 ▪ SWEDEN
 
-vless://00799b08-1090-4ed3-bec0-0fa26816a703@194.87.250.49:443?encryption=none&extra=%7B%22noSSEHeader%22%3Afalse%7D&fp=firefox&path=%2Fapi%2Fv2%2Fstream&security=tls&sni=fial.bootless.ru&type=xhttp#🇫🇮 ▪ FINLAND
+vless://de32225b-374c-4a6a-830e-7c4e367fcfb5@mxzfn.klyck.online:443?encryption=none&flow=xtls-rprx-vision&type=tcp&security=reality&sni=mxzfn.klyck.online&pbk=y070kpnC4ztcJp523O7L87JkxhMQhXOUYrjh-uP_PzI&sid=ef50ff080d648308&fp=firefox#🇸🇪 ▪ SWEDEN
 
-hysteria2://900c8c92-1979-4c7c-8f2f-63e87d53d8fe@128.254.186.190:13337?sni=mother-earth.fyi&alpn=h3#🇬🇧 ▪ UNITED KINGDOM
+vless://9df9ee1a-0671-4c6c-93c7-65598fb946f7@193.124.66.208:443?security=reality&encryption=none&pbk=7LBetmnWiUHWLTnW_sflaJvDfgSkTIe1BE6zw_dg1xY&headerType=none&fp=qq&type=tcp&flow=xtls-rprx-vision&sni=rufinmicro1.gangplatform.com&sid=899cbfb833ccbe51#🇫🇮 ▪ FINLAND
 
-vless://391a32c6-084c-4d61-8e8d-472678021dac@85.234.86.230:6443?encryption=none&fp=firefox&pbk=3PLiGB7-JrVgOon0cmuxYLf0rOhuVIooAgch7gB8zD8&security=reality&serviceName=%2Fapi%2Fv1%2Fupdate&sid=d7d3b7ffae8086ac&sni=download.amd.com&type=grpc#🇪🇪 ▪ ESTONIA
+vless://6db83ec3-fad5-4514-b752-4e42276eb03b@13.140.85.172:443?security=tls&fp=chrome&sni=pnj.paxaro.ir&encryption=none&type=tcp#🇳🇱 ▪ NETHERLANDS
 
-vless://00799b08-1090-4ed3-bec0-0fa26816a703@72.56.69.70:443?encryption=none&extra=%7B%22noSSEHeader%22%3Afalse%7D&fp=firefox&path=%2Fapi%2Fv2%2Fstream&security=tls&sni=plaksa.bootless.ru&type=xhttp#🇵🇱 ▪ POLAND
+vless://d7121b33-e335-4921-bb00-4c0b157e7fc1@94.183.164.138:443?type=tcp&headerType=none&security=tls&encryption=none&sni=o9q3.cloud-kmt.com#🇳🇱 ▪ NETHERLANDS
 
-vless://391a32c6-084c-4d61-8e8d-472678021dac@ee.extremumnews.com:6443?type=grpc&security=reality&sni=download.amd.com&serviceName=%2Fapi%2Fv1%2Fupdate&authority=download.amd.com&fp=qq&pbk=3PLiGB7-JrVgOon0cmuxYLf0rOhuVIooAgch7gB8zD8&sid=d7d3b7ffae8086ac&encryption=none#🇪🇪 ▪ ESTONIA
+vless://7d31a423-4bb6-4c16-91b8-c08901a37780@143.246.41.232:443?encryption=none&flow=xtls-rprx-vision&fp=firefox&pbk=lI2vfdzBaAKrDxAdkAW8IHp9pkpQV6INmJrYriC_lyE&security=reality&sid=9ef8ebef9638b9c7&sni=e0ddd1x.ee2.h1clayd.click&type=tcp#🇪🇪 ▪ ESTONIA
 
-hysteria2://900c8c92-1979-4c7c-8f2f-63e87d53d8fe@uk-tube-01.stre4m.net:13337?sni=mother-earth.fyi&alpn=h3#🇬🇧 ▪ UNITED KINGDOM
+vless://de32225b-374c-4a6a-830e-7c4e367fcfb5@hzkjm.klyck.online:443?security=reality&pbk=pdyae3nJy_oGSKS6bcKDRujDmvcJuu31n6DOkVYvvlw&fp=firefox&type=raw&flow=xtls-rprx-vision&sni=hzkjm.klyck.online&sid=635d40276db3b2de&encryption=none#🇫🇮 ▪ FINLAND
 
-vless://9df9ee1a-0671-4c6c-93c7-65598fb946f7@45.150.37.169:443?flow=xtls-rprx-vision&security=reality&sni=rumicro641.richhoodfoc.com&fp=firefox&pbk=2GYWewnpSKVqp2AXm1hEZ-av8iApLPa62V7rxpxt1SE&sid=b9bb317e9e2627&encryption=none&type=tcp#🇳🇱 ▪ NETHERLANDS
+vless://9df9ee1a-0671-4c6c-93c7-65598fb946f7@84.54.44.117:443?encryption=none&flow=xtls-rprx-vision&pbk=fPvZxeP0GErdI22fbEAqbMaz-QMumNIDzBNgKZmRsWY&security=reality&sid=a7b12f3265f97f4a&sni=rumicro642.richhoodfoc.com&type=tcp&fp=chrome#🇳🇱 ▪ NETHERLANDS
 
-vless://04920673-035c-410d-94e4-5b1469d3fb6f@185.200.199.122:443?encryption=none&flow=xtls-rprx-vision&fp=firefox&security=tls&type=tcp#🇳🇱 ▪ NETHERLANDS
+vless://0173d52e-8e1b-4681-831e-11529677b72f@165.231.157.150:8443?encryption=none&flow=xtls-rprx-vision&fp=firefox&security=tls&sni=api-6b04608f.adhil.uk&type=tcp#🇫🇮 ▪ FINLAND
 
-vless://By-BlackRay-Channel@217.216.217.127:443?type=tcp&headerType=none&security=reality&encryption=none&sni=nl.wordpress.org&fp=chrome&pbk=DHhDwTmyUJETVMQUC3xCUK2yApgnRMsyOUK8oVUceRY&sid=21439457&spx=%2FV921qzhUus0LBGK#🇳🇱 ▪ NETHERLANDS
+vless://0173d52e-8e1b-4681-831e-11529677b72f@165.231.157.140:8443?encryption=none&flow=xtls-rprx-vision&fp=firefox&security=tls&sni=api-6b04608f.adhil.uk&type=tcp#🇪🇪 ▪ ESTONIA
 
-vless://391a32c6-084c-4d61-8e8d-472678021dac@13.143.189.174:6443?type=grpc&security=reality&sni=downloadmirror.intel.com&serviceName=%2Fapi%2Fv1%2Fupdate&authority=downloadmirror.intel.com&fp=qq&pbk=T_DB978NmE_RxqrscgvQl6vch18YDEAJY-uk7tBtBzY&sid=50831b4958b2643a&encryption=none#🇵🇱 ▪ POLAND
+vless://0173d52e-8e1b-4681-831e-11529677b72f@165.231.157.126:8443?encryption=none&flow=xtls-rprx-vision&fp=firefox&security=tls&sni=api-6b04608f.adhil.uk&type=tcp#🇪🇪 ▪ ESTONIA
 
-vless://9df9ee1a-0671-4c6c-93c7-65598fb946f7@185.185.71.168:443?encryption=none&flow=xtls-rprx-vision&type=tcp&security=reality&sni=rusbox745.gangtype.com&pbk=RZPobWJXwesTvFGCPTeE40Oc0AWFj0fmv0UDeJFLIhY&sid=bf83ed9220c59bc3&fp=firefox#🇳🇱 ▪ NETHERLANDS
+vless://80b3cf20-c77c-4fb9-a69e-55c9dadd58c8@31.59.156.16:443?encryption=none&flow=xtls-rprx-vision&fp=firefox&pbk=M102pOyYWWXO23uugneRjqRqc30SGQN1jIwCYg9STRE&security=reality&sid=8acb6e79c1b29c4b&sni=broe.primetap.cards&type=tcp#🇨🇦 ▪ CANADA
 
-vless://de32225b-374c-4a6a-830e-7c4e367fcfb5@13.143.239.243:443?flow=xtls-rprx-vision&security=reality&sni=vexlum.klyck.online&fp=firefox&pbk=ocBBxRqpWdvUTfd6hRdEcOq7TtiHdQi65s5thInXjkw&sid=a503308602b56095&encryption=none&type=tcp#🇪🇪 ▪ ESTONIA
-
-vless://9df9ee1a-0671-4c6c-93c7-65598fb946f7@141.8.198.29:443?flow=xtls-rprx-vision&security=reality&sni=rusbox634.grizpliz.am&fp=firefox&pbk=xPwj2JRpRX0EhUmiJeuii1iMaX1iT2Smq0k5Pyu3hEk&sid=7ce3580ea68cc329&encryption=none&type=tcp#🇳🇱 ▪ NETHERLANDS
+vless://04920673-035c-410d-94e4-5b1469d3fb6f@171.22.183.167:443?security=tls&encryption=none&insecure=0&headerType=none&fp=chrome&type=tcp&allowInsecure=0&flow=xtls-rprx-vision&sni=171.22.183.167#🇳🇱 ▪ NETHERLANDS
