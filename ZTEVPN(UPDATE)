@@ -5,45 +5,48 @@
 #subscription-userinfo: upload=0; download=0; total=16106127360; expire=1792886400
 #problems БЕЛЫЕ СПИСКИ НЕРАБОТАЮТ 
 vless://7c9e6679-7425-40de-944b-e07fc1f90ae7@104.21.32.1:443?type=tcp&security=reality&sni=yahoo.com&fp=chrome&pbk=1a2b3c4d5e6f7g8h9i0j&sid=ab12cd34#%F0%9F%8E%84%20%D0%A2%D0%B0%D1%80%D0%B8%D1%84%3A%20New%20Year%20%F0%9F%8E%81%0A%D0%90%D0%BA%D1%82%D0%B8%D0%B2%D0%B5%D0%BD%20%D0%B4%D0%BE%2001.01.27
-vless://8b911bca-7715-4adb-a755-f628847a0065@cdnok.b2ai.top:443?mode=packet-up&path=%2Fapi%2Fv1%2Ftelemetry%2Fcall%2F&security=tls&alpn=h2&encryption=none&extra=%7B%22mode%22%3A%22packet-up%22%2C%22path%22%3A%22%5C%2Fapi%5C%2Fv1%5C%2Ftelemetry%5C%2Fcall%5C%2F%22%2C%22seqKey%22%3A%22chunk_id%22%2C%22xPaddingKey%22%3A%22hash%22%2C%22seqPlacement%22%3A%22query%22%2C%22sessionIDKey%22%3A%22X-Upload-Token%22%2C%22uplinkDataKey%22%3A%22X-Data%22%2C%22xPaddingBytes%22%3A%2216-64%22%2C%22xPaddingHeader%22%3A%22X-Client-Version%22%2C%22xPaddingMethod%22%3A%22tokenish%22%2C%22uplinkChunkSize%22%3A4096%2C%22uplinkHTTPMethod%22%3A%22GET%22%2C%22xPaddingObfsMode%22%3Atrue%2C%22xPaddingPlacement%22%3A%22queryInHeader%22%2C%22scMaxEachPostBytes%22%3A32768%2C%22sessionIDPlacement%22%3A%22header%22%2C%22uplinkDataPlacement%22%3A%22header%22%2C%22scMinPostsIntervalMs%22%3A35%2C%22serverMaxHeaderBytes%22%3A65536%7D&insecure=0&host=cdnok.b2ai.top&fp=chrome&type=xhttp&allowInsecure=0&sni=cdnok.b2ai.top#🇸🇪 SWEDEN
+vless://e28400a8-0819-4bff-a5ac-aded4f6beaeb@31.76.249.96:443?type=tcp&headerType=none&security=reality&encryption=none&sni=img.eurostaticfiles.shop&fp=firefox&pbk=Srhhku9bWUF4QapiwDFhqVThRHe0FGL86dPXopDiHXM&sid=9a71ca67&flow=xtls-rprx-vision#🇩🇪 GERMANY
 
-vless://0173d52e-8e1b-4681-831e-11529677b72f@50.7.28.214:443?security=tls&sni=api-v3-0173d52e.vmagnum.win&alpn=h2&fp=firefox&type=xhttp&path=%2F&mode=auto&encryption=none#🇩🇪 GERMANY
+vless://639b131f-d0f3-460c-aa17-423047f8a5df@94.183.164.13:443?encryption=none&flow=xtls-rprx-vision&fp=firefox&pbk=-P8DgKISSG4jnLuj6ihZDqZs1_zt-juBrhVhTylHiAo&security=reality&sni=obger4.mcufa.pro&type=tcp#🇳🇱 NETHERLANDS
 
-vless://4ed6347d-a31c-4d6e-8e50-a1732e755145@13.184.230.100:443?encryption=none&flow=xtls-rprx-vision&fp=chrome&headerType=none&pbk=94ht0iE2gA8VdlDHGtXeKrPcIK3dckjKSIQYkZ9xnnM&security=reality&sid=0123456789abcdef&sni=www.microsoft.com&type=tcp#🇺🇸 USA
+vless://f4b08bf1-d9bd-4755-aa88-ba922282c608@82.152.141.125:443?type=tcp&headerType=none&security=reality&encryption=none&sni=nexz747.richhoodfoc.com&fp=firefox&pbk=UIHULCJ5JuqZHg66twX_GyTtaSE4Zu7XN2VCX4Hc0l0&sid=cf7cd748e03a6be8&flow=xtls-rprx-vision#🇳🇱 NETHERLANDS
 
-vless://58e22afd-bf74-4736-984d-63a8ca03d7f0@31.76.3.52:443?encryption=none&fp=firefox&host=payablemeta.cleanfoodshop.org&path=%2Fmedia%2Fws%2F&security=tls&sni=payablemeta.cleanfoodshop.org&type=ws#🇸🇪 SWEDEN
+vless://259ec8bc-5a6b-4b33-8a71-c40e8d150c24@191.217.253.11:443?encryption=none&fp=firefox&pbk=fNfokzklCF4l_c8k8PciOCjm5ecNoF_sNLjEtaO-xzI&security=reality&sid=db04ce8bdb8900f1&sni=1.4.8.8&type=tcp#🇵🇱 POLAND
 
-vless://e894c08a-fecc-46f5-bf03-c95d0274c79d@48.102.138.175:8443?type=tcp&security=reality&flow=xtls-rprx-vision&sni=www.google.com&pbk=25QzRZqG6_xhYTy3Be7EXiE8UgaVyRl_GFx8mfXBLWc&sid=6aee1e2cdc4d33dd&fp=firefox&encryption=none#🇺🇸 USA
+vless://6cd3dbe2-5bb8-4115-aad9-d50b238ce841@48.103.230.114:443?type=ws&headerType=none&security=tls&encryption=none&sni=api.cdn-mirror.net&fp=firefox&path=%2Faccess#🇳🇱 NETHERLANDS
 
-vless://0173d52e-8e1b-4681-831e-11529677b72f@23.237.202.252:443?security=tls&sni=id-0173d52e.vmagnum.win&alpn=h2&fp=safari&type=xhttp&path=%2F&mode=auto&encryption=none#🇺🇸 USA
+vless://0173d52e-8e1b-4681-831e-11529677b72f@196.240.125.244:8443?encryption=none&flow=xtls-rprx-vision&fp=firefox&security=tls&sni=api-v1-6b07048f.vmagnum.win&type=tcp#🇳🇱 NETHERLANDS
 
-vless://e894c08a-fecc-46f5-bf03-c95d0274c79d@48.102.207.167:443?type=raw&security=reality&flow=xtls-rprx-vision&fp=firefox&pbk=MZEux6K9MlKwN9dto2Mj2gGS6IJSEs229nFPh5aYwSQ&sid=32e95dff907cc876&sni=www.google.com&encryption=none#🇺🇸 USA
+vless://0173d52e-8e1b-4681-831e-11529677b72f@one.alpheratzz.org:8443?type=raw&security=tls&flow=xtls-rprx-vision&fp=firefox&sni=api-6b04608f.adhil.uk&encryption=none#🇫🇮 FINLAND
 
-vless://639b131f-d0f3-460c-aa17-423047f8a5df@147.45.45.194:443?encryption=none&flow=xtls-rprx-vision&type=tcp&security=reality&sni=finb2.mcufa.pro&pbk=-P8DgKISSG4jnLuj6ihZDqZs1_zt-juBrhVhTylHiAo&fp=firefox#🇫🇮 FINLAND
+vless://0173d52e-8e1b-4681-831e-11529677b72f@50.7.28.214:443/?type=xhttp&encryption=none&path=%2F&mode=auto&security=tls&sni=api-v3-0173d52e.vmagnum.win&alpn=h2&fp=firefox#🇩🇪 GERMANY
 
-vless://3c778768-d511-4221-8be3-3eba45640e9e@51.161.204.242:443/?type=tcp&encryption=none&flow=xtls-rprx-vision&sni=www.cloudflare.com&fp=chrome&security=reality&pbk=l0I4SmPtUDyjp1PAeSxBJ5qr9vubCOl9w3b-eDI4x24&sid=d432fe14bbdc17f6#🇦🇺 AUSTRALIA
+vless://8bc3af32-c6bb-4a57-8da1-9a662fd79e3c@196.240.5.12:443?type=xhttp&headerType=none&security=tls&encryption=none&sni=8bc3af32.ferrin.uk&fp=firefox&path=%2Flv#🇸🇨 SEYCHELLES
 
-vless://4e4f1f70-5e56-4a76-bb9d-db087f4690c4@62.106.75.37:443?security=tls&fp=unsafe&sni=jp3.yohototo.top&type=ws&headerType=none&host=jp3.yohototo.top&path=%2Ftyxyws&encryption=none#🇯🇵 JAPAN
+vless://c0742f77-5495-43bf-b007-88d368774d7c@31.59.156.57:443?encryption=none&flow=xtls-rprx-vision&fp=firefox&pbk=8J-SvgA_FEZG-T-dX5sV2zqnQm4-J6aT1LK6Kk-7pho&security=reality&sid=b3da8e3ebc600de3&sni=canadizian.harcho.shop&type=tcp#🇨🇦 CANADA
 
-vless://58e22afd-bf74-4736-984d-63a8ca03d7f0@95.182.97.242:443?encryption=none&security=tls&sni=accessfooter.cleanfoodshop.org&fp=firefox&type=ws&path=%2Fmedia%2Fws%2F&host=accessfooter.cleanfoodshop.org#🇸🇪 SWEDEN
+vless://e460e7b2-a146-4468-87ed-52510b2caae6@136.234.173.231:8881?encryption=none&type=grpc&security=reality&sni=dl.google.com&pbk=Dfgu8Ey0M8Hz4gXGZAwQ3H9jLt2HByVsjAOTWiuKDB0&sid=aa&fp=qq&serviceName=grpc-tunnel#🇸🇪 SWEDEN
 
-vless://58e22afd-bf74-4736-984d-63a8ca03d7f0@161.97.179.61:443?encryption=none&security=tls&sni=accessfooter.cleanfoodshop.org&fp=firefox&type=ws&path=%2Fmedia%2Fws%2F&host=accessfooter.cleanfoodshop.org#🇸🇪 SWEDEN
-vless://4e4f1f70-5e56-4a76-bb9d-db087f4690c4@62.106.75.37:443?security=tls&fp=unsafe&sni=jp3.yohototo.top&type=ws&headerType=none&host=jp3.yohototo.top&path=%2Ftyxyws&encryption=none#🇯🇵 JAPAN
+vless://62995b2a-8f82-41f8-ac80-dfdfc1253e76@82.27.77.237:25191?encryption=none&type=xhttp&security=reality&path=%2Fastral-edge-h1&host=82.27.77.237&sni=a8687er.se2.h1clayd.click&fp=firefox&pbk=_Cb2FzFDVi9blwCb_5V0NZue6wt-U6GL0N_-OX8NGGA&sid=55328e423218ee9b#🇸🇪 SWEDEN
 
-vless://58e22afd-bf74-4736-984d-63a8ca03d7f0@95.182.97.242:443?encryption=none&security=tls&sni=accessfooter.cleanfoodshop.org&fp=firefox&type=ws&path=%2Fmedia%2Fws%2F&host=accessfooter.cleanfoodshop.org#🇸🇪 SWEDEN
+vless://5dd4822d-b8dc-49dd-84b6-c3ea44ef42f7@145.249.109.248:443?flow=xtls-rprx-vision&security=reality&sni=mcsp.67resserv67.info&fp=firefox&pbk=gM_rANbedeIHB3Y1ltLG60xS1i2TuYt0PKgAgC1TzR4&sid=29455a3a790acbd0&encryption=none&type=tcp#🇪🇸 SPAIN
 
-vless://58e22afd-bf74-4736-984d-63a8ca03d7f0@161.97.179.61:443?encryption=none&security=tls&sni=accessfooter.cleanfoodshop.org&fp=firefox&type=ws&path=%2Fmedia%2Fws%2F&host=accessfooter.cleanfoodshop.org#🇸🇪 SWEDEN
+vless://0173d52e-8e1b-4681-831e-11529677b72f@23.237.202.252:443/?type=xhttp&encryption=none&path=%2F&mode=auto&security=tls&sni=id-0173d52e.vmagnum.win&alpn=h2&fp=safari#🇺🇸 USA
 
-vless://0259e5aa-c188-4334-b204-32cd5ea859f6@31.56.187.209:443?flow=xtls-rprx-vision&fp=firefox&pbk=_MeP-WwmolUvi6wMXNoSs_zo6miG_OW7xk4ibzADiHY&security=reality&sni=es-maps-revers.keno.su&type=raw&encryption=none#🇪🇪 ESTONIA
+vless://7aa77858-f235-0001-9434-7ab060848b17@85.8.201.186:443?flow=xtls-rprx-vision&security=tls&sni=cdn.mornismp.ru&alpn=h2%2Chttp%2F1.1&fp=firefox&encryption=none&type=tcp#🇩🇪 GERMANY
 
-vless://128bd8ad-4f6c-4d70-af13-15a2cec331d2@185.71.216.177:2194?flow=xtls-rprx-vision&security=reality&sni=www.apple.com&fp=firefox&pbk=jHtC6ayzhkd_GVNF5TIGPu9iVpqUltBAQj1dpGJHwxs&sid=55986a94e2228791&encryption=none&type=tcp#🇩🇪 GERMANY
+vless://0173d52e-8e1b-4681-831e-11529677b72f@us.alpheratzz.org:443?type=xhttp&headerType=none&security=tls&encryption=none&sni=id-0173d52e.vmagnum.win&fp=safari&path=%2F&mode=stream-one#🇺🇸 USA
 
-vless://e894c08a-fecc-46f5-bf03-c95d0274c79d@6bf329t.nl18.h1clayd.click:443?type=tcp&security=reality&flow=xtls-rprx-vision&sni=6bf329t.nl18.h1clayd.click&pbk=p35RUaaaItuoyNiCrLpGeStBUpEJMSiZ2AajdfhhmiM&sid=92aee92130b46fe2&fp=firefox&headerType=none&encryption=none#🇳🇱 NETHERLANDS
+vless://c0742f77-5495-43bf-b007-88d368774d7c@wt2561az.thewalkingded.life:443?security=reality&encryption=none&pbk=yRiALDdYl3RIWzkAktpXyjEubuJOGSHQmGWNOSFvTh4&fp=firefox&spx=%2F&type=tcp&flow=xtls-rprx-vision&sni=wt2561az.thewalkingded.life&sid=91d82754d06c5d38#🇮🇳 INDIA
 
-vless://549766c3-fa5f-471e-8031-ffc1f8d5064f@87.120.92.186:2087?mode=auto&path=%2Fv2%2Fsync%2F6e9367&security=reality&encryption=none&extra=%7B%22xmux%22%3A&pbk=mbi4BZAuiq_L6pfhG2xxWmtosq0Z1Pzf18fvNSWKMxY&fp=firefox&type=xhttp&sni=maps.blog-forme.ru&sid=3258252d44113e23#🇩🇪 GERMANY
+vless://5807f1c4-b50e-4ec0-8d01-274045da0da5@13.229.225.59:43113?encryption=none&flow=xtls-rprx-vision&fp=firefox&pbk=EK3prcfF8VKm3CoTXWQguRj67LxGbkPIpKmEUKsMKGs&security=reality&sid=ff2c978a0b&sni=v1-dy.ixigua.com&type=tcp#🇸🇬 SINGAPORE
 
-vless://4e4f1f70-5e56-4a76-bb9d-db087f4690c4@45.129.8.204:443?security=tls&sni=jp3.yohototo.top&type=ws&host=jp3.yohototo.top&path=%2Ftyxyws&encryption=none#🌐 UNKNOWN
+vless://62995b2a-8f82-41f8-ac80-dfdfc1253e76@13.141.37.235:25035?encryption=none&fp=firefox&path=%2Fastral-edge-h1&pbk=m7pPQqgE5q8qOjHhn9AjNA9sWhBFQ-gXzyGcZTNihUU&security=reality&sid=eb63581de991f8c8&sni=96f799r.ch5.h1clayd.click&type=xhttp#🇨🇭 SWITZERLAND
 
-vless://16ae4cc7-178f-4f3f-a477-0186430d8a14@nlne57.skiki.pro:2443?flow=xtls-rprx-vision&type=raw&security=reality&fp=chrome&sni=esne2.skiki.pro&pbk=BFXJb4QzmJTPFKJ5mMckFwNcDzVtNUFEpBBgXJki8vBJ&sid=c551e55b4eb212fc&encryption=none#🇪🇪 ESTONIA
+vless://81d6c0bb-280b-40d1-ac51-3081386bb895@87.120.106.95:443?encryption=none&fp=firefox&host=worldoftanks.eu&pbk=iQCvXMQZR-eT2MVmXP7c99cvcle22mVWuKem_345BWM&security=reality&sni=worldoftanks.eu&type=xhttp#🇺🇸 USA
 
-vless://97daeafa-0744-38a0-9441-74d6cdb63e80@138.124.37.196:443?security=reality&encryption=none&pbk=r7gK1xDtZl5wDL59Teyw--KXacW1EjOT2mm0MdwY7gM&fp=firefox&type=tcp&flow=xtls-rprx-vision&sni=lg.hel.play2go.cloud&sid=39b7084197ed8260#🇫🇮 FINLAND
+vless://e894c08a-fecc-46f5-bf03-c95d0274c79d@45.86.158.201:443?encryption=none&flow=xtls-rprx-vision&fp=firefox&pbk=cEapNjAtrnPz_dCSziCJVvXJf2Mq_FtY5UabpQFmI0w&security=reality&sid=449f801b009f33f4&sni=e293c7t.us3.h1clayd.click&type=tcp#🇺🇸 USA
+
+vless://639b131f-d0f3-460c-aa17-423047f8a5df@31.59.179.113:443?encryption=none&flow=xtls-rprx-vision&fp=firefox&pbk=-P8DgKISSG4jnLuj6ihZDqZs1_zt-juBrhVhTylHiAo&security=reality&sni=gerb2.mcufa.pro&type=tcp#🇩🇪 GERMANY
+
+vless://c0742f77-5495-43bf-b007-88d368774d7c@88.119.176.64:443?encryption=none&flow=xtls-rprx-vision&fp=firefox&pbk=I_-Mb_q3_4-ZdzrzB6SKh-Zla1kKI4M_0OMjWDYXVxg&security=reality&sid=13d8fbd7fd9e1ce8&sni=wwrtq.lerogrenta.shop&type=tcp#🇱🇹 LITHUANIA
